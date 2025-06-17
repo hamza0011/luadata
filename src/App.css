@@ -675,6 +675,10 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
+/* REPLACE ONLY THE FLOATING CARDS SECTION FOR PC RESOLUTION */
+
+/* Find and replace this section in your CSS file */
+
 /* Floating Cards Section - Responsive Grid */
 .hero-visual-section {
   animation: slideInUp 0.8s ease 0.6s both;
@@ -686,19 +690,62 @@ body {
   max-width: 100%;
   margin: 0 auto;
   display: grid;
-  gap: clamp(1rem, 2.5vw, 1.5rem);
-  padding: clamp(1rem, 2.5vw, 1.5rem);
   align-items: center;
   justify-items: center;
 }
 
-/* Desktop - Equally spaced grid */
+/* PC Resolution - Perfect Matrix 3x2 Grid */
 @media (min-width: 1024px) {
   .floating-cards {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    height: clamp(300px, 35vh, 400px);
-    max-width: 100%;
+    grid-template-columns: repeat(3, 120px);
+    grid-template-rows: repeat(2, 120px);
+    gap: 40px 60px; /* vertical horizontal gaps */
+    width: 480px; /* exact: (3×120) + (2×60) = 480px */
+    height: 280px; /* exact: (2×120) + (1×40) = 280px */
+    padding: 0;
+    margin: 0 auto;
+    justify-content: center;
+    align-content: center;
+    place-items: center;
+  }
+  
+  .card-3d {
+    width: 120px;
+    height: 120px;
+    position: relative; /* Remove absolute positioning */
+    /* Remove all top, left, right, bottom properties */
+  }
+}
+
+/* Large Desktop - Scaled Matrix */
+@media (min-width: 1440px) {
+  .floating-cards {
+    grid-template-columns: repeat(3, 140px);
+    grid-template-rows: repeat(2, 140px);
+    gap: 50px 70px;
+    width: 560px; /* (3×140) + (2×70) = 560px */
+    height: 330px; /* (2×140) + (1×50) = 330px */
+  }
+  
+  .card-3d {
+    width: 140px;
+    height: 140px;
+  }
+}
+
+/* Extra Large - Maximum Matrix */
+@media (min-width: 1920px) {
+  .floating-cards {
+    grid-template-columns: repeat(3, 160px);
+    grid-template-rows: repeat(2, 160px);
+    gap: 60px 80px;
+    width: 640px; /* (3×160) + (2×80) = 640px */
+    height: 380px; /* (2×160) + (1×60) = 380px */
+  }
+  
+  .card-3d {
+    width: 160px;
+    height: 160px;
   }
 }
 
@@ -707,8 +754,10 @@ body {
   .floating-cards {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
+    gap: clamp(1rem, 2.5vw, 1.5rem);
     height: clamp(250px, 30vh, 350px);
     max-width: 600px;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
   }
 }
 
@@ -717,15 +766,14 @@ body {
   .floating-cards {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
+    gap: clamp(1rem, 2.5vw, 1.5rem);
     height: clamp(300px, 40vh, 400px);
     max-width: 400px;
+    padding: clamp(1rem, 2.5vw, 1.5rem);
   }
 }
 
 .card-3d {
-  position: relative;
-  width: clamp(80px, 18vw, 140px);
-  height: clamp(80px, 18vw, 140px);
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-xl);
@@ -738,13 +786,21 @@ body {
   cursor: pointer;
 }
 
-/* Staggered animation delays */
-.card-3d:nth-child(1) { animation-delay: 0s; }
-.card-3d:nth-child(2) { animation-delay: 1s; }
-.card-3d:nth-child(3) { animation-delay: 2s; }
-.card-3d:nth-child(4) { animation-delay: 3s; }
-.card-3d:nth-child(5) { animation-delay: 4s; }
-.card-3d:nth-child(6) { animation-delay: 5s; }
+/* Mobile/Tablet card sizing */
+@media (max-width: 1023px) {
+  .card-3d {
+    width: clamp(80px, 18vw, 140px);
+    height: clamp(80px, 18vw, 140px);
+  }
+}
+
+/* Staggered animation delays for perfect matrix */
+.card-3d:nth-child(1) { animation-delay: 0s; }    /* Top-left */
+.card-3d:nth-child(2) { animation-delay: 0.5s; }  /* Top-center */
+.card-3d:nth-child(3) { animation-delay: 1s; }    /* Top-right */
+.card-3d:nth-child(4) { animation-delay: 1.5s; }  /* Bottom-left */
+.card-3d:nth-child(5) { animation-delay: 2s; }    /* Bottom-center */
+.card-3d:nth-child(6) { animation-delay: 2.5s; }  /* Bottom-right */
 
 .card-3d:hover {
   transform: translateY(-10px) scale(1.05);
@@ -766,12 +822,62 @@ body {
   color: white;
 }
 
+/* PC Resolution - Fixed icon sizes */
+@media (min-width: 1024px) {
+  .card-icon svg {
+    width: 24px;
+    height: 24px;
+    margin-bottom: 0.5rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card-icon svg {
+    width: 28px;
+    height: 28px;
+    margin-bottom: 0.75rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .card-icon svg {
+    width: 32px;
+    height: 32px;
+    margin-bottom: 0.75rem;
+  }
+}
+
 .card-title {
   font-weight: 600;
-  font-size: clamp(0.625rem, 1.8vw, 0.875rem);
   opacity: 0.9;
   color: white;
   line-height: 1.2;
+}
+
+/* PC Resolution - Fixed title sizes */
+@media (min-width: 1024px) {
+  .card-title {
+    font-size: 0.75rem;
+  }
+}
+
+@media (min-width: 1440px) {
+  .card-title {
+    font-size: 0.875rem;
+  }
+}
+
+@media (min-width: 1920px) {
+  .card-title {
+    font-size: 1rem;
+  }
+}
+
+/* Mobile/Tablet title sizing */
+@media (max-width: 1023px) {
+  .card-title {
+    font-size: clamp(0.625rem, 1.8vw, 0.875rem);
+  }
 }
 
 @keyframes cardFloat {
