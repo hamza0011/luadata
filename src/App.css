@@ -478,7 +478,7 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-/* FLOATING CARDS - COMPLETELY REVISED FOR PERFECT EQUAL SPACING */
+/* FLOATING CARDS - REVISED FOR 3x3 GRID ON PC */
 
 .hero-visual {
   animation: slideInUp 0.8s ease 0.6s both;
@@ -490,7 +490,6 @@ body {
 
 .floating-cards {
   position: relative;
-  width: 100%;
   display: grid;
   justify-content: center;
   align-content: center;
@@ -504,8 +503,8 @@ body {
     grid-template-rows: repeat(3, 1fr);
     width: 280px;
     height: 300px;
-    gap: 12px;
-    padding: 12px;
+    gap: 16px;
+    padding: 16px;
   }
 }
 
@@ -515,9 +514,9 @@ body {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
     width: 320px;
-    height: 320px;
-    gap: 16px;
-    padding: 16px;
+    height: 360px;
+    gap: 20px;
+    padding: 20px;
   }
 }
 
@@ -528,42 +527,42 @@ body {
     grid-template-rows: repeat(2, 1fr);
     width: 450px;
     height: 280px;
-    gap: 20px;
-    padding: 20px;
-  }
-}
-
-/* DESKTOP - 3x2 GRID - FIXED EQUAL SPACING */
-@media (min-width: 1024px) and (max-width: 1439px) {
-  .floating-cards {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
-    width: 480px;
-    height: 300px;
     gap: 24px;
     padding: 24px;
   }
 }
 
-/* LARGE DESKTOP - 3x2 GRID - FIXED EQUAL SPACING */
+/* DESKTOP - 3x3 GRID (PC RESOLUTION) */
+@media (min-width: 1024px) and (max-width: 1439px) {
+  .floating-cards {
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+    width: 480px;
+    height: 480px;
+    gap: 24px;
+    padding: 24px;
+  }
+}
+
+/* LARGE DESKTOP - 3x3 GRID */
 @media (min-width: 1440px) and (max-width: 1919px) {
   .floating-cards {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     width: 540px;
-    height: 340px;
+    height: 540px;
     gap: 30px;
     padding: 30px;
   }
 }
 
-/* EXTRA LARGE - 3x2 GRID - FIXED EQUAL SPACING */
+/* EXTRA LARGE - 3x3 GRID */
 @media (min-width: 1920px) {
   .floating-cards {
     grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-rows: repeat(3, 1fr);
     width: 600px;
-    height: 380px;
+    height: 600px;
     gap: 36px;
     padding: 36px;
   }
@@ -600,12 +599,21 @@ body {
   .card-3d {
     width: 100%;
     height: 100%;
+    min-width: 90px;
+    min-height: 90px;
+  }
+}
+
+@media (min-width: 768px) and (max-width: 1023px) {
+  .card-3d {
+    width: 100%;
+    height: 100%;
     min-width: 100px;
     min-height: 100px;
   }
 }
 
-@media (min-width: 768px) and (max-width: 1023px) {
+@media (min-width: 1024px) and (max-width: 1439px) {
   .card-3d {
     width: 100%;
     height: 100%;
@@ -614,7 +622,7 @@ body {
   }
 }
 
-@media (min-width: 1024px) and (max-width: 1439px) {
+@media (min-width: 1440px) and (max-width: 1919px) {
   .card-3d {
     width: 100%;
     height: 100%;
@@ -623,7 +631,7 @@ body {
   }
 }
 
-@media (min-width: 1440px) and (max-width: 1919px) {
+@media (min-width: 1920px) {
   .card-3d {
     width: 100%;
     height: 100%;
@@ -632,22 +640,16 @@ body {
   }
 }
 
-@media (min-width: 1920px) {
-  .card-3d {
-    width: 100%;
-    height: 100%;
-    min-width: 140px;
-    min-height: 140px;
-  }
-}
-
-/* STAGGERED ANIMATION DELAYS */
+/* STAGGERED ANIMATION DELAYS - UPDATED FOR 9 CARDS */
 .card-3d:nth-child(1) { animation-delay: 0s; }
-.card-3d:nth-child(2) { animation-delay: 0.5s; }
-.card-3d:nth-child(3) { animation-delay: 1s; }
-.card-3d:nth-child(4) { animation-delay: 1.5s; }
-.card-3d:nth-child(5) { animation-delay: 2s; }
-.card-3d:nth-child(6) { animation-delay: 2.5s; }
+.card-3d:nth-child(2) { animation-delay: 0.3s; }
+.card-3d:nth-child(3) { animation-delay: 0.6s; }
+.card-3d:nth-child(4) { animation-delay: 0.9s; }
+.card-3d:nth-child(5) { animation-delay: 1.2s; }
+.card-3d:nth-child(6) { animation-delay: 1.5s; }
+.card-3d:nth-child(7) { animation-delay: 1.8s; }
+.card-3d:nth-child(8) { animation-delay: 2.1s; }
+.card-3d:nth-child(9) { animation-delay: 2.4s; }
 
 .card-3d:hover {
   transform: scale(1.05) translateY(-5px);
