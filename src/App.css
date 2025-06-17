@@ -964,29 +964,21 @@ body {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  text-align: center;
-  gap: 0.5rem;
   z-index: 3;
   animation: slideInUp 0.8s ease 1.2s both;
 }
 
-.scroll-text {
-  font-size: clamp(0.75rem, 2vw, 0.875rem);
-  margin-bottom: var(--spacing-sm);
-  font-weight: 500;
-  letter-spacing: 0.025em;
-}
-
+/* Icon centered perfectly */
 .scroll-icon {
   width: clamp(20px, 4vw, 24px);
   height: clamp(32px, 6vw, 40px);
   border: 2px solid white;
   border-radius: 12px;
-  margin: 0 auto;
   position: relative;
+  box-sizing: border-box;
 }
 
+/* Dot inside icon */
 .scroll-icon::before {
   content: '';
   position: absolute;
@@ -999,6 +991,17 @@ body {
   border-radius: 2px;
   animation: scrollDot 2s infinite;
 }
+
+/* Text below the icon */
+.scroll-text {
+  font-size: clamp(0.75rem, 2vw, 0.875rem);
+  margin-top: var(--spacing-sm);
+  font-weight: 500;
+  letter-spacing: 0.025em;
+  color: white;
+  text-align: center;
+}
+
 
 @keyframes scrollDot {
   0% { 
