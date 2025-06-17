@@ -2098,16 +2098,28 @@ html {
   scroll-margin-top: 80px;
 }
 
-/* Simple Notification Styles - Add to your CSS file */
+/* Add this CSS to your App.css file */
+
+/* Form Notification Styles */
 .form-notification {
   margin-top: 1.5rem;
   padding: 1rem 1.5rem;
   background: rgba(16, 185, 129, 0.1);
   border: 1px solid rgba(16, 185, 129, 0.3);
   border-radius: 12px;
-  opacity: 0;
-  transform: translateY(-20px);
-  transition: all 0.3s ease;
+  animation: slideInNotification 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+@keyframes slideInNotification {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .notification-content {
@@ -2135,6 +2147,7 @@ html {
   color: #10b981;
   font-weight: 600;
   margin-bottom: 0.25rem;
+  font-size: 1rem;
 }
 
 .notification-text p {
@@ -2142,9 +2155,10 @@ html {
   color: #10b981;
   opacity: 0.9;
   font-size: 0.875rem;
+  line-height: 1.4;
 }
 
-/* Mobile responsiveness */
+/* Mobile responsiveness for notification */
 @media (max-width: 768px) {
   .form-notification {
     margin-top: 1rem;
@@ -2160,5 +2174,30 @@ html {
     height: 35px;
     font-size: 18px;
   }
+  
+  .notification-text strong {
+    font-size: 0.875rem;
+  }
+  
+  .notification-text p {
+    font-size: 0.75rem;
+  }
 }
 
+/* Dark theme support */
+@media (prefers-color-scheme: dark) {
+  .form-notification {
+    background: rgba(16, 185, 129, 0.15);
+    border-color: rgba(16, 185, 129, 0.4);
+  }
+
+  .notification-icon {
+    background: rgba(16, 185, 129, 0.25);
+    color: #34d399;
+  }
+
+  .notification-text strong,
+  .notification-text p {
+    color: #34d399;
+  }
+}
