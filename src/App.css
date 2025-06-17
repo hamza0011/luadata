@@ -330,154 +330,41 @@ body {
   min-height: calc(100vh - 200px);
 }
 
-/* Add this CSS to your App.css file */
-
-/* Hero Section Desktop Layout - Side by Side */
+/* Desktop Layout - Side by Side */
 @media (min-width: 1024px) {
-  .hero-content {
+  .hero-main-content {
     display: grid;
     grid-template-columns: 1fr 1fr;
-    gap: 4rem;
+    gap: clamp(2rem, 5vw, 4rem);
     align-items: center;
-    min-height: 80vh;
-  }
-
-  .hero-text {
-    max-width: none;
     text-align: left;
   }
 
-  .hero-visual {
-    display: flex !important;
+  .hero-text-section {
+    order: 1;
+    margin-bottom: 0;
+  }
+
+  .hero-visual-section {
+    order: 2;
+    margin-bottom: 0;
+    display: flex;
     justify-content: center;
     align-items: center;
-    height: 100%;
-    min-height: 500px;
-  }
-
-  .floating-cards {
-    position: relative;
-    width: 100%;
-    height: 500px;
-    max-width: 600px;
-  }
-
-  /* Adjust floating cards positioning for side layout */
-  .card-3d:nth-child(1) {
-    top: 10%;
-    left: 10%;
-  }
-
-  .card-3d:nth-child(2) {
-    top: 5%;
-    right: 15%;
-  }
-
-  .card-3d:nth-child(3) {
-    top: 35%;
-    left: 5%;
-  }
-
-  .card-3d:nth-child(4) {
-    top: 30%;
-    right: 5%;
-  }
-
-  .card-3d:nth-child(5) {
-    bottom: 25%;
-    left: 15%;
-  }
-
-  .card-3d:nth-child(6) {
-    bottom: 15%;
-    right: 20%;
-  }
-
-  /* Enhance card animations for desktop */
-  .card-3d {
-    animation-duration: 6s;
-    animation-timing-function: ease-in-out;
-    animation-iteration-count: infinite;
-    animation-direction: alternate;
-  }
-
-  .card-3d:nth-child(odd) {
-    animation-name: floatUp;
-  }
-
-  .card-3d:nth-child(even) {
-    animation-name: floatDown;
-  }
-}
-
-/* Floating animations */
-@keyframes floatUp {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(-20px) rotate(2deg);
-  }
-}
-
-@keyframes floatDown {
-  0%, 100% {
-    transform: translateY(0) rotate(0deg);
-  }
-  50% {
-    transform: translateY(20px) rotate(-2deg);
-  }
-}
-
-/* Large desktop screens (1440px+) */
-@media (min-width: 1440px) {
-  .hero-content {
-    gap: 6rem;
-  }
-
-  .floating-cards {
-    height: 600px;
-    max-width: 700px;
   }
 
   .hero-title {
-    font-size: 4rem;
-    line-height: 1.1;
+    text-align: left;
   }
 
   .hero-description {
-    font-size: 1.25rem;
-    line-height: 1.7;
-  }
-}
-
-/* Extra large screens (1920px+) */
-@media (min-width: 1920px) {
-  .hero-content {
-    max-width: 1600px;
-    margin: 0 auto;
-    gap: 8rem;
+    text-align: left;
+    margin-left: 0;
+    margin-right: 0;
   }
 
-  .floating-cards {
-    height: 700px;
-    max-width: 800px;
-  }
-}
-
-/* Ensure mobile stays stacked */
-@media (max-width: 1023px) {
-  .hero-content {
-    display: block;
-    text-align: center;
-  }
-
-  .hero-visual {
-    margin-top: 3rem;
-  }
-
-  .floating-cards {
-    height: 400px;
+  .hero-buttons {
+    justify-content: flex-start;
   }
 }
 
