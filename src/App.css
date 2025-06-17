@@ -393,6 +393,72 @@ body {
     right: 20%;
   }
 
+  /* Optional: Enhanced card styling for better side-by-side presentation */
+/* Add this to your App.css if you want more polished cards */
+
+@media (min-width: 1024px) {
+  .card-3d {
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 
+      0 8px 32px rgba(0, 0, 0, 0.1),
+      0 2px 8px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+  }
+
+  .card-3d:hover {
+    transform: translateY(-5px) scale(1.05);
+    box-shadow: 
+      0 20px 40px rgba(0, 0, 0, 0.15),
+      0 4px 16px rgba(0, 0, 0, 0.1);
+  }
+
+  .card-content {
+    padding: 1.5rem 1rem;
+    text-align: center;
+  }
+
+  .card-icon {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-bottom: 0.75rem;
+    color: #3b82f6;
+  }
+
+  .card-title {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: #1f2937;
+    margin-bottom: 0.25rem;
+  }
+
+  .card-desc {
+    font-size: 0.75rem;
+    color: #6b7280;
+    opacity: 0.8;
+  }
+
+  /* Dark mode support */
+  @media (prefers-color-scheme: dark) {
+    .card-3d {
+      background: rgba(17, 24, 39, 0.8);
+      border-color: rgba(255, 255, 255, 0.1);
+    }
+
+    .card-title {
+      color: #f9fafb;
+    }
+
+    .card-desc {
+      color: #d1d5db;
+    }
+
+    .card-icon {
+      color: #60a5fa;
+    }
+  }
+}
+
   /* Enhance card animations for desktop */
   .card-3d {
     animation-duration: 6s;
