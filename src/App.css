@@ -478,7 +478,7 @@ body {
   box-shadow: var(--shadow-lg);
 }
 
-/* FLOATING CARDS - COMPLETELY REVISED RESPONSIVE GRID SYSTEM */
+/* FLOATING CARDS - COMPLETELY REVISED FOR PERFECT EQUAL SPACING */
 
 .hero-visual {
   animation: slideInUp 0.8s ease 0.6s both;
@@ -492,10 +492,9 @@ body {
   position: relative;
   width: 100%;
   display: grid;
-  align-items: center;
-  justify-items: center;
-  gap: clamp(0.75rem, 2vw, 1.5rem);
-  padding: clamp(1rem, 2vw, 1.5rem);
+  justify-content: center;
+  align-content: center;
+  place-items: center;
 }
 
 /* MOBILE PORTRAIT - 2x3 GRID */
@@ -503,10 +502,10 @@ body {
   .floating-cards {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    max-width: 280px;
-    min-height: 300px;
-    gap: 0.75rem;
-    padding: 0.75rem;
+    width: 280px;
+    height: 300px;
+    gap: 12px;
+    padding: 12px;
   }
 }
 
@@ -515,10 +514,10 @@ body {
   .floating-cards {
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: repeat(3, 1fr);
-    max-width: 320px;
-    min-height: 320px;
-    gap: 1rem;
-    padding: 1rem;
+    width: 320px;
+    height: 320px;
+    gap: 16px;
+    padding: 16px;
   }
 }
 
@@ -527,60 +526,52 @@ body {
   .floating-cards {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    max-width: 450px;
-    min-height: 280px;
-    gap: 1.25rem;
-    padding: 1.25rem;
+    width: 450px;
+    height: 280px;
+    gap: 20px;
+    padding: 20px;
   }
 }
 
-/* DESKTOP - 3x2 GRID */
+/* DESKTOP - 3x2 GRID - FIXED EQUAL SPACING */
 @media (min-width: 1024px) and (max-width: 1439px) {
   .floating-cards {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    max-width: 500px;
-    min-height: 320px;
-    gap: 1.5rem;
-    padding: 1.5rem;
-    place-items: center;
-    grid-auto-flow: row;
+    width: 480px;
+    height: 300px;
+    gap: 24px;
+    padding: 24px;
   }
 }
 
-/* LARGE DESKTOP - 3x2 GRID */
+/* LARGE DESKTOP - 3x2 GRID - FIXED EQUAL SPACING */
 @media (min-width: 1440px) and (max-width: 1919px) {
   .floating-cards {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    max-width: 550px;
-    min-height: 360px;
-    gap: 2rem;
-    padding: 2rem;
-    place-items: center;
-    grid-auto-flow: row;
+    width: 540px;
+    height: 340px;
+    gap: 30px;
+    padding: 30px;
   }
 }
 
-/* EXTRA LARGE - 3x2 GRID */
+/* EXTRA LARGE - 3x2 GRID - FIXED EQUAL SPACING */
 @media (min-width: 1920px) {
   .floating-cards {
     grid-template-columns: repeat(3, 1fr);
     grid-template-rows: repeat(2, 1fr);
-    max-width: 600px;
-    min-height: 400px;
-    gap: 2.5rem;
-    padding: 2.5rem;
-    place-items: center;
-    grid-auto-flow: row;
+    width: 600px;
+    height: 380px;
+    gap: 36px;
+    padding: 36px;
   }
 }
 
-/* CARD STYLING - RESPONSIVE */
+/* CARD STYLING - FIXED DIMENSIONS FOR PERFECT GRID */
 .card-3d {
   position: relative;
-  width: 100%;
-  aspect-ratio: 1;
   background: rgba(255, 255, 255, 0.1);
   border: 1px solid rgba(255, 255, 255, 0.2);
   border-radius: var(--radius-lg);
@@ -591,56 +582,62 @@ body {
   transition: var(--transition-normal);
   animation: gentleFloat 6s ease-in-out infinite;
   cursor: pointer;
-  justify-self: center;
-  align-self: center;
+  justify-self: stretch;
+  align-self: stretch;
 }
 
-/* RESPONSIVE CARD SIZES - FIXED FOR EQUAL DISTRIBUTION */
+/* RESPONSIVE CARD SIZES - EXACT DIMENSIONS */
 @media (max-width: 479px) {
   .card-3d {
-    max-width: 80px;
-    width: 80px;
-    height: 80px;
+    width: 100%;
+    height: 100%;
+    min-width: 80px;
+    min-height: 80px;
   }
 }
 
 @media (min-width: 480px) and (max-width: 767px) {
   .card-3d {
-    max-width: 100px;
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
+    min-width: 100px;
+    min-height: 100px;
   }
 }
 
 @media (min-width: 768px) and (max-width: 1023px) {
   .card-3d {
-    max-width: 110px;
-    width: 110px;
-    height: 110px;
+    width: 100%;
+    height: 100%;
+    min-width: 110px;
+    min-height: 110px;
   }
 }
 
 @media (min-width: 1024px) and (max-width: 1439px) {
   .card-3d {
-    max-width: 120px;
-    width: 120px;
-    height: 120px;
+    width: 100%;
+    height: 100%;
+    min-width: 120px;
+    min-height: 120px;
   }
 }
 
 @media (min-width: 1440px) and (max-width: 1919px) {
   .card-3d {
-    max-width: 130px;
-    width: 130px;
-    height: 130px;
+    width: 100%;
+    height: 100%;
+    min-width: 130px;
+    min-height: 130px;
   }
 }
 
 @media (min-width: 1920px) {
   .card-3d {
-    max-width: 140px;
-    width: 140px;
-    height: 140px;
+    width: 100%;
+    height: 100%;
+    min-width: 140px;
+    min-height: 140px;
   }
 }
 
