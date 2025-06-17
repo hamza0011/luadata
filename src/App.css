@@ -958,61 +958,59 @@ body {
 /* Scroll Indicator - Always Centered at Bottom */
 .scroll-indicator {
   position: absolute;
-  bottom: clamp(1.5rem, 5vh, 3rem);
-  left: 50%;
+  bottom: 5vh;
+  left: 50vw;
   transform: translateX(-50%);
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 0.75rem;
   z-index: 3;
-  animation: slideInUp 0.8s ease 1.2s both;
 }
 
-/* Icon centered perfectly */
+/* Centered Icon */
 .scroll-icon {
-  width: clamp(20px, 4vw, 24px);
-  height: clamp(32px, 6vw, 40px);
+  width: 24px;
+  height: 40px;
   border: 2px solid white;
   border-radius: 12px;
   position: relative;
   box-sizing: border-box;
 }
 
-/* Dot inside icon */
+/* Animated Dot inside Icon */
 .scroll-icon::before {
   content: '';
   position: absolute;
   top: 6px;
   left: 50%;
   transform: translateX(-50%);
-  width: clamp(3px, 1vw, 4px);
-  height: clamp(4px, 1.5vw, 6px);
+  width: 4px;
+  height: 6px;
   background: white;
   border-radius: 2px;
   animation: scrollDot 2s infinite;
 }
 
-/* Text below the icon */
+@keyframes scrollDot {
+  0% {
+    transform: translateX(-50%) translateY(0);
+    opacity: 1;
+  }
+  100% {
+    transform: translateX(-50%) translateY(20px);
+    opacity: 0;
+  }
+}
+
+/* Text centered under icon */
 .scroll-text {
-  font-size: clamp(0.75rem, 2vw, 0.875rem);
-  margin-top: var(--spacing-sm);
-  font-weight: 500;
-  letter-spacing: 0.025em;
+  font-size: 0.875rem;
   color: white;
+  font-weight: 500;
   text-align: center;
 }
 
-
-@keyframes scrollDot {
-  0% { 
-    transform: translateX(-50%) translateY(0); 
-    opacity: 1; 
-  }
-  100% { 
-    transform: translateX(-50%) translateY(clamp(15px, 4vw, 20px)); 
-    opacity: 0; 
-  }
-}
 
 /* Section Styles - Responsive */
 .section-header {
