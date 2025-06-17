@@ -306,65 +306,74 @@ const LuaDataApp = () => {
     }, 100);
   };
 
-  // Replace your existing handleFormSubmit function with this:
-
-const [showNotification, setShowNotification] = useState(false);
+  const [showNotification, setShowNotification] = useState(false);
 
 const handleFormSubmit = async (e) => {
   e.preventDefault();
   setIsFormLoading(true);
 
-  const formData = new FormData(e.target);
+  const form = e.target;
+  const formData = new FormData(form);
 
-  // Fire gtag events immediately on form submission
-  if (typeof gtag !== 'undefined') {
-    gtag('event', 'generate_lead', {
-      'currency': 'USD',
-      'value': 50,
-      'event_category': 'Lead Generation',
-      'event_label': 'Contact Form Submitted'
-    });
-    
-    gtag('event', 'conversion', {
-      'send_to': 'AW-17153791006/5c18CMjFoNcaEJ6oyPM_',
-      'value': 50.0,
-      'currency': 'USD',
-      'transaction_id': Date.now().toString()
-    });
-    
-    gtag('event', 'form_submit_success', {
-      'event_category': 'Lead Generation',
-      'event_label': 'Contact Form Completed',
-      'value': 50
-    });
-  }
+  // Add form name for Netlify
+  formData.append('form-name', 'contact');
 
   try {
-    // Submit to Netlify
-    await fetch('/', {
+    // Submit to Netlify with correct headers
+    const response = await fetch('/', {
       method: 'POST',
-      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      headers: { 
+        'Content-Type': 'application/x-www-form-urlencoded' 
+      },
       body: new URLSearchParams(formData).toString()
     });
 
-    // Show inline notification instead of alert
-    setShowNotification(true);
-    
-    // Reset form
-    e.target.reset();
-    
-    // Hide notification after 5 seconds
-    setTimeout(() => {
-      setShowNotification(false);
-    }, 5000);
+    if (response.ok) {
+      console.log('Form submitted successfully to Netlify');
+
+      // Fire gtag events after successful submission
+      if (typeof gtag !== 'undefined') {
+        gtag('event', 'generate_lead', {
+          'currency': 'USD',
+          'value': 50,
+          'event_category': 'Lead Generation',
+          'event_label': 'Contact Form Submitted'
+        });
+        
+        gtag('event', 'conversion', {
+          'send_to': 'AW-17153791006/5c18CMjFoNcaEJ6oyPM_',
+          'value': 50.0,
+          'currency': 'USD',
+          'transaction_id': Date.now().toString()
+        });
+        
+        gtag('event', 'form_submit_success', {
+          'event_category': 'Lead Generation',
+          'event_label': 'Contact Form Completed',
+          'value': 50
+        });
+      }
+
+      // Show success notification
+      setShowNotification(true);
+      
+      // Reset form
+      form.reset();
+      
+      // Hide notification after 5 seconds
+      setTimeout(() => {
+        setShowNotification(false);
+      }, 5000);
+
+    } else {
+      throw new Error(`HTTP error! status: ${response.status}`);
+    }
 
   } catch (error) {
     console.error('Form submission error:', error);
-    // Show success notification anyway (as per your original code)
-    setShowNotification(true);
-    setTimeout(() => {
-      setShowNotification(false);
-    }, 5000);
+    
+    // Show error notification
+    alert('There was an error submitting the form. Please try again.');
   } finally {
     setIsFormLoading(false);
   }
@@ -875,6 +884,12 @@ const handleFormSubmit = async (e) => {
             <div className="contact-form-container">
               <form name="contact" method="POST" data-netlify="true" className="contact-form" onSubmit={handleFormSubmit} noValidate>
                 <input type="hidden" name="form-name" value="contact" />
+                <p style={{ display: 'none' }}>
+                  <label>
+                    Don't fill this out if you're human: 
+                    <input name="bot-field" />
+                  </label>
+                </p>
 
                 <div className="form-group floating-label">
                   <input 
