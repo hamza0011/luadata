@@ -355,43 +355,103 @@ body {
     min-height: 500px;
   }
 
+  /* Floating Cards Section - Responsive Grid */
+.hero-visual-section {
+  animation: slideInUp 0.8s ease 0.6s both;
+}
+
+.floating-cards {
+  display: grid;
+  gap: 2rem;
+  justify-content: center;
+  align-content: center;
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+/* Default mobile layout: 2 columns */
+.floating-cards {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+/* Tablet layout: 3 columns */
+@media (min-width: 768px) {
   .floating-cards {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+/* PC layout: 3x2 matrix with fixed spacing */
+@media (min-width: 1024px) {
+  .floating-cards {
+    grid-template-columns: repeat(3, 140px);
+    grid-template-rows: repeat(2, 140px);
+    gap: 40px 60px;
+    width: 560px;
+    height: 330px;
+  }
+
+  .card-3d {
+    width: 140px;
+    height: 140px;
     position: relative;
-    width: 100%;
-    height: 500px;
-    max-width: 600px;
+  }
+}
+
+/* Large screen: scale up */
+@media (min-width: 1440px) {
+  .floating-cards {
+    grid-template-columns: repeat(3, 160px);
+    grid-template-rows: repeat(2, 160px);
+    gap: 50px 70px;
+    width: 640px;
+    height: 370px;
   }
 
-  /* Adjust floating cards positioning for side layout */
-  .card-3d:nth-child(1) {
-    top: 10%;
-    left: 10%;
+  .card-3d {
+    width: 160px;
+    height: 160px;
+  }
+}
+
+/* Extra large screens */
+@media (min-width: 1920px) {
+  .floating-cards {
+    grid-template-columns: repeat(3, 180px);
+    grid-template-rows: repeat(2, 180px);
+    gap: 60px 80px;
+    width: 720px;
+    height: 420px;
   }
 
-  .card-3d:nth-child(2) {
-    top: 5%;
-    right: 15%;
+  .card-3d {
+    width: 180px;
+    height: 180px;
   }
+}
 
-  .card-3d:nth-child(3) {
-    top: 35%;
-    left: 5%;
-  }
+/* Ensure card animation and styling remains */
+.card-3d {
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: var(--radius-xl);
+  backdrop-filter: blur(20px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: var(--transition-normal);
+  animation: cardFloat 8s ease-in-out infinite;
+  cursor: pointer;
+}
 
-  .card-3d:nth-child(4) {
-    top: 30%;
-    right: 5%;
-  }
+/* Remove any absolute top/left/right from .card-3d children */
+.card-3d:nth-child(n) {
+  top: auto;
+  left: auto;
+  right: auto;
+  bottom: auto;
+  position: relative;
+}
 
-  .card-3d:nth-child(5) {
-    bottom: 25%;
-    left: 15%;
-  }
-
-  .card-3d:nth-child(6) {
-    bottom: 15%;
-    right: 20%;
-  }
 
   /* Optional: Enhanced card styling for better side-by-side presentation */
 /* Add this to your App.css if you want more polished cards */
