@@ -290,7 +290,9 @@ body {
   visibility: visible;
 }
 
-/* Hero Section - Clean Fix for Side by Side Layout */
+/* REPLACE YOUR ENTIRE HERO SECTION WITH THIS CODE */
+
+/* Hero Section - Side by Side Layout */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -314,102 +316,111 @@ body {
   z-index: 1;
 }
 
-/* Hero Main Container - Responsive Layout */
+/* Hero Main Container */
 .hero-main-content {
   position: relative;
   z-index: 2;
   width: 100%;
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 clamp(1rem, 4vw, 1.5rem);
+  padding: 0 clamp(1rem, 4vw, 2rem);
   flex: 1;
   min-height: calc(100vh - 200px);
-  
-  /* Default: Mobile/Tablet Stacked Layout */
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  gap: clamp(2rem, 6vw, 3rem);
 }
 
-/* PC RESOLUTION ONLY - Side by Side Layout (1024px and above) */
-@media (min-width: 1024px) {
+/* PC ONLY: Side by Side Grid Layout */
+@media screen and (min-width: 1024px) {
   .hero-main-content {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    gap: clamp(3rem, 6vw, 4rem) !important;
-    align-items: center !important;
-    text-align: left !important;
-    justify-items: stretch !important;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr;
+    gap: clamp(3rem, 6vw, 5rem);
+    align-items: center;
+    justify-items: stretch;
   }
 
   .hero-text-section {
-    order: 1 !important;
-    margin-bottom: 0 !important;
-    max-width: none !important;
+    grid-column: 1;
+    grid-row: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    text-align: left;
+    width: 100%;
   }
 
   .hero-visual-section {
-    order: 2 !important;
-    margin-bottom: 0 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
+    grid-column: 2;
+    grid-row: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
   }
 
   .hero-title {
-    text-align: left !important;
+    text-align: left;
+    margin-bottom: clamp(1rem, 3vh, 2rem);
   }
 
   .hero-description {
-    text-align: left !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    max-width: none !important;
+    text-align: left;
+    max-width: none;
+    margin-left: 0;
+    margin-right: 0;
+    margin-bottom: clamp(1.5rem, 4vh, 2.5rem);
   }
 
   .hero-buttons {
-    justify-content: flex-start !important;
+    justify-content: flex-start;
+    align-items: flex-start;
   }
 }
 
-/* Mobile/Tablet Layout - Force Stacked (Below 1024px) */
-@media (max-width: 1023px) {
+/* Mobile/Tablet: Stacked Layout */
+@media screen and (max-width: 1023px) {
   .hero-main-content {
-    display: flex !important;
-    flex-direction: column !important;
-    text-align: center !important;
-    gap: clamp(2rem, 6vw, 3rem) !important;
-    padding-bottom: 80px !important;
+    display: flex;
+    flex-direction: column;
+    gap: clamp(2rem, 6vw, 3rem);
+    text-align: center;
+    align-items: center;
+    justify-content: center;
   }
 
   .hero-text-section {
-    order: 1 !important;
-    width: 100% !important;
-    margin-bottom: 0 !important;
+    order: 1;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 800px;
   }
 
   .hero-visual-section {
-    order: 2 !important;
-    width: 100% !important;
-    margin-bottom: 0 !important;
+    order: 2;
+    width: 100%;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
   .hero-title {
-    text-align: center !important;
+    text-align: center;
   }
 
   .hero-description {
-    text-align: center !important;
-    max-width: clamp(300px, 90vw, 600px) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
+    text-align: center;
+    max-width: clamp(300px, 90vw, 600px);
+    margin-left: auto;
+    margin-right: auto;
   }
 
   .hero-buttons {
-    justify-content: center !important;
+    justify-content: center;
   }
 }
 
@@ -526,7 +537,7 @@ body {
   justify-items: center;
 }
 
-/* PC Resolution - 3x2 grid for side-by-side layout */
+/* PC Resolution - 3x2 grid */
 @media (min-width: 1024px) {
   .floating-cards {
     grid-template-columns: repeat(3, 1fr);
@@ -2210,151 +2221,3 @@ html {
   scroll-margin-top: 80px;
 }
 
-/* HERO SECTION SIDE BY SIDE FIX - Add to end of your CSS */
-
-/* PC Resolution: Hero Text LEFT + Floating Cards RIGHT */
-@media screen and (min-width: 1024px) {
-  .hero-main-content {
-    display: grid !important;
-    grid-template-columns: 1fr 1fr !important;
-    grid-template-rows: 1fr !important;
-    gap: clamp(3rem, 6vw, 5rem) !important;
-    align-items: center !important;
-    justify-items: stretch !important;
-    max-width: 1200px !important;
-    margin: 0 auto !important;
-    padding: 0 clamp(2rem, 4vw, 3rem) !important;
-    min-height: calc(100vh - 200px) !important;
-  }
-
-  /* LEFT SIDE: Hero Text Section */
-  .hero-text-section {
-    grid-column: 1 !important;
-    grid-row: 1 !important;
-    display: flex !important;
-    flex-direction: column !important;
-    justify-content: center !important;
-    align-items: flex-start !important;
-    text-align: left !important;
-    width: 100% !important;
-    max-width: none !important;
-    padding-right: 1rem !important;
-  }
-
-  /* RIGHT SIDE: Floating Cards Section */
-  .hero-visual-section {
-    grid-column: 2 !important;
-    grid-row: 1 !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-    width: 100% !important;
-    max-width: none !important;
-    padding-left: 1rem !important;
-  }
-
-  /* Text Elements Aligned Left */
-  .hero-title {
-    text-align: left !important;
-    margin-bottom: clamp(1rem, 3vh, 2rem) !important;
-  }
-
-  .hero-description {
-    text-align: left !important;
-    max-width: none !important;
-    margin-left: 0 !important;
-    margin-right: 0 !important;
-    margin-bottom: clamp(1.5rem, 4vh, 2.5rem) !important;
-  }
-
-  .hero-buttons {
-    justify-content: flex-start !important;
-    align-items: flex-start !important;
-  }
-
-  /* Floating Cards Optimized for Right Side */
-  .floating-cards {
-    width: 100% !important;
-    max-width: 100% !important;
-    grid-template-columns: repeat(3, 1fr) !important;
-    grid-template-rows: repeat(2, 1fr) !important;
-    height: clamp(300px, 35vh, 400px) !important;
-    gap: clamp(1rem, 2vw, 1.5rem) !important;
-  }
-
-  .card-3d {
-    width: 100% !important;
-    height: 100% !important;
-    max-width: 140px !important;
-    max-height: 140px !important;
-    min-width: 80px !important;
-    min-height: 80px !important;
-  }
-}
-
-/* Mobile/Tablet: Stacked Layout (Text on top, Cards below) */
-@media screen and (max-width: 1023px) {
-  .hero-main-content {
-    display: flex !important;
-    flex-direction: column !important;
-    gap: clamp(2rem, 6vw, 3rem) !important;
-    text-align: center !important;
-    align-items: center !important;
-    justify-content: center !important;
-    padding: 0 clamp(1rem, 4vw, 2rem) !important;
-  }
-
-  .hero-text-section {
-    order: 1 !important;
-    width: 100% !important;
-    text-align: center !important;
-    display: flex !important;
-    flex-direction: column !important;
-    align-items: center !important;
-    max-width: 800px !important;
-  }
-
-  .hero-visual-section {
-    order: 2 !important;
-    width: 100% !important;
-    text-align: center !important;
-    display: flex !important;
-    justify-content: center !important;
-    align-items: center !important;
-  }
-
-  .hero-title {
-    text-align: center !important;
-  }
-
-  .hero-description {
-    text-align: center !important;
-    max-width: clamp(300px, 90vw, 600px) !important;
-    margin-left: auto !important;
-    margin-right: auto !important;
-  }
-
-  .hero-buttons {
-    justify-content: center !important;
-  }
-
-  /* Mobile cards layout */
-  .floating-cards {
-    max-width: 400px !important;
-  }
-}
-
-/* Visual Debug - Remove after confirming it works */
-@media screen and (min-width: 1024px) {
-  .hero-main-content {
-    outline: 3px solid red !important;
-  }
-  
-  .hero-text-section {
-    outline: 3px solid blue !important;
-  }
-  
-  .hero-visual-section {
-    outline: 3px solid green !important;
-  }
-}
