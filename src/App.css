@@ -703,13 +703,15 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: clamp(0.5rem, 1.5vw, 0.75rem);
 }
 
 .scroll-text {
   font-size: clamp(0.75rem, 2vw, 0.875rem);
-  margin-bottom: var(--spacing-sm);
   font-weight: 500;
   letter-spacing: 0.025em;
+  margin: 0;
+  order: 2;
 }
 
 .scroll-icon {
@@ -717,8 +719,9 @@ body {
   height: clamp(32px, 6vw, 40px);
   border: 2px solid white;
   border-radius: 12px;
-  margin: 0 auto;
   position: relative;
+  order: 1;
+  margin: 0;
 }
 
 .scroll-icon::before {
