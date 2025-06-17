@@ -306,39 +306,69 @@ const LuaDataApp = () => {
     }, 100);
   };
 
-  // Form Handling
-  const handleFormSubmit = async (e) => {
-    e.preventDefault();
-    setIsFormLoading(true);
+  // Replace your existing handleFormSubmit function with this:
 
-    const formData = new FormData(e.target);
+const [showNotification, setShowNotification] = useState(false);
 
-    try {
-      // Submit to Netlify
-      await fetch('/', {
-        method: 'POST',
-        headers: { "Content-Type": "application/x-www-form-urlencoded" },
-        body: new URLSearchParams(formData).toString()
-      });
+const handleFormSubmit = async (e) => {
+  e.preventDefault();
+  setIsFormLoading(true);
 
-      // Analytics tracking
-      if (typeof gtag !== 'undefined') {
-        gtag('event', 'form_submit', {
-          'event_category': 'Contact',
-          'event_label': 'Contact Form Submission'
-        });
-      }
+  const formData = new FormData(e.target);
 
-      // Show success message
-      alert('Thank you! We will get back to you soon.');
-    } catch (error) {
-      console.error('Form submission error:', error);
-      alert('Thank you! Your message has been received.');
-    } finally {
-      setIsFormLoading(false);
-      e.target.reset();
-    }
-  };
+  // Fire gtag events immediately on form submission
+  if (typeof gtag !== 'undefined') {
+    gtag('event', 'generate_lead', {
+      'currency': 'USD',
+      'value': 50,
+      'event_category': 'Lead Generation',
+      'event_label': 'Contact Form Submitted'
+    });
+    
+    gtag('event', 'conversion', {
+      'send_to': 'AW-17153791006/5c18CMjFoNcaEJ6oyPM_',
+      'value': 50.0,
+      'currency': 'USD',
+      'transaction_id': Date.now().toString()
+    });
+    
+    gtag('event', 'form_submit_success', {
+      'event_category': 'Lead Generation',
+      'event_label': 'Contact Form Completed',
+      'value': 50
+    });
+  }
+
+  try {
+    // Submit to Netlify
+    await fetch('/', {
+      method: 'POST',
+      headers: { "Content-Type": "application/x-www-form-urlencoded" },
+      body: new URLSearchParams(formData).toString()
+    });
+
+    // Show inline notification instead of alert
+    setShowNotification(true);
+    
+    // Reset form
+    e.target.reset();
+    
+    // Hide notification after 5 seconds
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 5000);
+
+  } catch (error) {
+    console.error('Form submission error:', error);
+    // Show success notification anyway (as per your original code)
+    setShowNotification(true);
+    setTimeout(() => {
+      setShowNotification(false);
+    }, 5000);
+  } finally {
+    setIsFormLoading(false);
+  }
+};
 
   // Tab handling
   const handleTabClick = (tabId) => {
@@ -921,6 +951,19 @@ const LuaDataApp = () => {
                 </button>
                 <div id="submit-status" className="sr-only" role="status" aria-live="polite"></div>
               </form>
+                {showNotification && (
+    <div className="form-notification success-notification">
+      <div className="notification-content">
+        <div className="notification-icon">
+          ✓
+        </div>
+        <div className="notification-text">
+          <strong>Submission received!</strong>
+          <p>We will get back to you at our earliest.</p>
+        </div>
+      </div>
+    </div>
+  )}
             </div>
           </div>
         </div>
