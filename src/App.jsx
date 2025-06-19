@@ -1043,8 +1043,8 @@ const handleFormSubmit = async (e) => {
                   </svg>
                 </div>
                 <div className="phone-block">
-                  <a href="tel:+16076087411">+1 (607) 608-7411</a>
-                  <a href="tel:+923174592503">+92 (317) 459-2503</a>
+                  <a href="tel:+16076087411"  className="phone-link">+1 (607) 608-7411</a>
+                  <a href="tel:+923174592503" className="phone-link">+92 (317) 459-2503</a>
                 </div>
               </div>
               <div className="contact-info-item">
@@ -1055,8 +1055,8 @@ const handleFormSubmit = async (e) => {
                   </svg>
                 </div>
                 <div className="address-section">
-                  <span>WorkVille 39 St. Midtown Manhattan, NY</span>
-                  <span>Colabs Johar Town, Lahore, Pakistan</span>
+                  <div className="address-line">WorkVille 39 St. Midtown Manhattan, NY</div>
+                  <div className="address-line">Colabs Johar Town, Lahore, Pakistan</div>
                 </div>
               </div>
             </div>
