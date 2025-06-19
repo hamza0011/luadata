@@ -2649,55 +2649,101 @@ html {
   box-shadow: 0 25px 50px rgba(124, 119, 198, 0.2);
 }
 
-/* Client Header */
+/* Client Header - Proper spacing and layout */
 .clients-section .client-header {
   display: flex;
   align-items: flex-start;
-  gap: 20px;
+  gap: 24px;
   margin-bottom: 30px;
   padding-bottom: 25px;
   border-bottom: 1px solid rgba(124, 119, 198, 0.2);
 }
 
-.clients-section .client-logo-large {
-  width: 70px;
-  height: 70px;
-  background: #7C77C6;
+/* Logo Container - Fixed size, no overlap */
+.clients-section .client-logo-container {
+  width: 80px;
+  height: 80px;
+  min-width: 80px; /* Prevent shrinking */
+  min-height: 80px;
+  background: transparent;
+  border: 2px solid rgba(124, 119, 198, 0.3);
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
-  flex-shrink: 0;
-  box-shadow: 0 4px 12px rgba(124, 119, 198, 0.3);
+  flex-shrink: 0; /* Prevent container from shrinking */
+  padding: 8px;
   position: relative;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
 }
 
-.clients-section .client-logo-large svg {
-  width: 32px;
-  height: 32px;
-  color: white;
+.clients-section .client-logo-container:hover {
+  border-color: rgba(124, 119, 198, 0.5);
+  box-shadow: 0 4px 12px rgba(124, 119, 198, 0.2);
+}
+
+/* SVG Logo - Contained within bounds */
+.clients-section .client-logo-img {
+  max-width: calc(100% - 4px); /* Account for border */
+  max-height: calc(100% - 4px);
+  width: auto;
+  height: auto;
+  object-fit: contain;
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+  z-index: 1;
 }
 
+/* Fallback logo - Properly contained */
+.clients-section .logo-fallback {
+  width: calc(100% - 4px);
+  height: calc(100% - 4px);
+  background: #7C77C6;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+}
+
+.clients-section .logo-fallback span {
+  color: white;
+  font-weight: 700;
+  font-size: 1.2rem;
+  letter-spacing: 1px;
+}
+
+/* Client Info - Proper text spacing */
 .clients-section .client-info {
   flex: 1;
+  min-width: 0; /* Allow text to wrap */
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
 }
 
 .clients-section .client-info h3 {
   color: white;
   font-size: 2rem;
   font-weight: 700;
-  margin: 0 0 8px 0;
+  margin: 0;
+  line-height: 1.2;
+  word-wrap: break-word;
 }
 
 .clients-section .client-industry {
   color: rgba(124, 119, 198, 0.8);
   font-size: 1rem;
   display: block;
-  margin-bottom: 10px;
+  margin: 0;
+  line-height: 1.4;
 }
 
 .clients-section .client-website {
@@ -2712,6 +2758,9 @@ html {
   background: rgba(124, 119, 198, 0.15);
   border-radius: 20px;
   border: 1px solid rgba(124, 119, 198, 0.25);
+  margin-top: 4px;
+  width: fit-content;
+  font-size: 0.9rem;
 }
 
 .clients-section .client-website:hover {
@@ -2724,6 +2773,7 @@ html {
 .clients-section .client-website svg {
   width: 16px;
   height: 16px;
+  flex-shrink: 0;
 }
 
 /* Client Content */
@@ -2775,6 +2825,7 @@ html {
 .clients-section .achievement-icon {
   width: 40px;
   height: 40px;
+  min-width: 40px;
   background: #7C77C6;
   border-radius: 50%;
   display: flex;
@@ -2792,6 +2843,7 @@ html {
 .clients-section .achievement-content {
   display: flex;
   flex-direction: column;
+  min-width: 0;
 }
 
 .clients-section .achievement-value {
@@ -2799,12 +2851,14 @@ html {
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.2;
+  word-wrap: break-word;
 }
 
 .clients-section .achievement-desc {
   color: rgba(124, 119, 198, 0.8);
   font-size: 0.875rem;
   margin-top: 3px;
+  line-height: 1.3;
 }
 
 /* Technologies */
@@ -2823,6 +2877,7 @@ html {
   font-weight: 500;
   border: 1px solid rgba(124, 119, 198, 0.25);
   transition: all 0.2s ease;
+  white-space: nowrap;
 }
 
 .clients-section .tech-tag:hover {
@@ -2861,12 +2916,14 @@ html {
   font-weight: 700;
   line-height: 1;
   margin-bottom: 8px;
+  word-wrap: break-word;
 }
 
 .clients-section .impact-label {
   color: rgba(124, 119, 198, 0.8);
   font-size: 0.875rem;
   font-weight: 500;
+  line-height: 1.3;
 }
 
 /* Call to Action */
@@ -2885,6 +2942,7 @@ html {
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 15px;
+  line-height: 1.3;
 }
 
 .clients-section .cta-content p {
@@ -2918,6 +2976,7 @@ html {
 .clients-section .cta-content .btn-primary svg {
   width: 20px;
   height: 20px;
+  flex-shrink: 0;
 }
 
 /* Mobile Responsiveness */
@@ -2933,7 +2992,20 @@ html {
   .clients-section .client-header {
     flex-direction: column;
     text-align: center;
-    gap: 15px;
+    gap: 20px;
+    align-items: center;
+  }
+
+  .clients-section .client-logo-container {
+    width: 70px;
+    height: 70px;
+    min-width: 70px;
+    min-height: 70px;
+  }
+
+  .clients-section .client-info {
+    align-items: center;
+    text-align: center;
   }
 
   .clients-section .client-info h3 {
@@ -2972,18 +3044,15 @@ html {
     padding: 25px;
   }
 
-  .clients-section .client-logo-large {
+  .clients-section .client-logo-container {
     width: 60px;
     height: 60px;
+    min-width: 60px;
+    min-height: 60px;
   }
 
-  .clients-section .client-logo-large svg {
-    width: 28px;
-    height: 28px;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+  .clients-section .client-header {
+    gap: 15px;
   }
 
   .clients-section .tech-tags {
@@ -2998,5 +3067,10 @@ html {
 
   .clients-section .impact-grid {
     grid-template-columns: 1fr;
+  }
+
+  .clients-section .client-website {
+    font-size: 0.85rem;
+    padding: 6px 12px;
   }
 }
