@@ -849,6 +849,8 @@ const handleFormSubmit = async (e) => {
         </div>
       </section>
 
+// Add this section after the Stats section (around line 800, before Contact section)
+
 {/* Past Clients Section - TestGorilla */}
 <section className="clients-section" id="clients">
   <div className="container">
@@ -950,10 +952,10 @@ const handleFormSubmit = async (e) => {
               <h4>Technologies Used</h4>
               <div className="tech-tags">
                 <span className="tech-tag">Machine Learning</span>
-                <span className="tech-tag">Natural Language Processing</span>
-                <span className="tech-tag">Python</span>
+                <span className="tech-tag">Data Engineering</span>
+                <span className="tech-tag">Big Data</span>
                 <span className="tech-tag">Data Analytics</span>
-                <span className="tech-tag">API Integration</span>
+                <span className="tech-tag">Apache Spark</span>
               </div>
             </div>
           </div>
