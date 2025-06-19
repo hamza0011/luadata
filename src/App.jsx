@@ -1043,6 +1043,7 @@ const handleFormSubmit = async (e) => {
                   </svg>
                 </div>
                 <a href="tel:+16076087411">+1 (607) 608-7411</a>
+                <a href="tel:+923174592503">+92 (317) 459-2503</a>
               </div>
               <div className="contact-info-item">
                 <div className="contact-icon">
@@ -1051,7 +1052,7 @@ const handleFormSubmit = async (e) => {
                     <circle cx="12" cy="10" r="3"/>
                   </svg>
                 </div>
-                <span>WorkVille 39 St. Midtown Manhattan, New York</span>
+                <span>WorkVille 39 St. Midtown Manhattan, NY</span>
               </div>
             </div>
           </div>
