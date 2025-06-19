@@ -868,7 +868,7 @@ const handleFormSubmit = async (e) => {
           <div className="client-header">
             <div className="client-logo-container">
               <img 
-                src="/testgorilla-logo.svg" 
+                src="/logo.svg" 
                 alt="TestGorilla Logo" 
                 className="client-logo-img"
                 onError={(e) => {
