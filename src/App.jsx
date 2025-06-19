@@ -849,7 +849,6 @@ const handleFormSubmit = async (e) => {
         </div>
       </section>
 
-// Add this section after the Stats section (around line 800, before Contact section)
 
 {/* Past Clients Section - TestGorilla */}
 <section className="clients-section" id="clients">
@@ -867,9 +866,9 @@ const handleFormSubmit = async (e) => {
       <div className="featured-client">
         <div className="client-story-card featured">
           <div className="client-header">
-            <div className="client-logo-large">
+            <div className="client-logo-container">
               <img 
-                src="/logo.svg" 
+                src="/testgorilla-logo.svg" 
                 alt="TestGorilla Logo" 
                 className="client-logo-img"
                 onError={(e) => {
@@ -878,18 +877,14 @@ const handleFormSubmit = async (e) => {
                   e.target.nextSibling.style.display = 'flex';
                 }}
               />
-              <div className="fallback-logo" style={{ display: 'none' }}>
-                <svg viewBox="0 0 24 24" fill="currentColor" className="gorilla-icon">
-                  <path d="M12 2C8.13 2 5 5.13 5 9c0 1.74.63 3.34 1.67 4.58L4.34 15.9c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l2.33-2.33C9.16 16.37 10.5 17 12 17s2.84-.63 3.92-1.02l2.33 2.33c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-2.33-2.33C18.37 12.34 19 10.74 19 9c0-3.87-3.13-7-7-7zm-2 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 4c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z"/>
-                </svg>
-                <span className="logo-text">TG</span>
+              <div className="logo-fallback" style={{ display: 'none' }}>
+                <span>TG</span>
               </div>
             </div>
             <div className="client-info">
-              <h3>TestGorilla</h3>
               <span className="client-industry">HR Tech • Skills Assessment Platform</span>
               <a href="https://www.testgorilla.com/test-library/programming-skills-tests/apache-spark-for-data-engineers-test/" target="_blank" rel="noopener noreferrer" className="client-website">
-                testgorilla.com
+                Apache Spark Assessment
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                   <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
                   <polyline points="15,3 21,3 21,9"/>
@@ -902,8 +897,8 @@ const handleFormSubmit = async (e) => {
           <div className="client-content">
             <div className="client-description">
               <p>
-                We partnered with TestGorilla to enhance their skills assessment platform with advanced AI capabilities, 
-                improving candidate evaluation accuracy and streamlining the hiring process for thousands of companies worldwide.
+                We collaborated with TestGorilla to develop and enhance their Apache Spark assessment for data engineers, 
+                creating comprehensive evaluation tools that help companies identify top-tier big data talent with precision and confidence.
               </p>
             </div>
             
@@ -917,20 +912,8 @@ const handleFormSubmit = async (e) => {
                     </svg>
                   </div>
                   <div className="achievement-content">
-                    <span className="achievement-value">Enhanced Assessment Accuracy</span>
-                    <span className="achievement-desc">AI-powered evaluation algorithms</span>
-                  </div>
-                </div>
-                
-                <div className="achievement-item">
-                  <div className="achievement-icon">
-                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
-                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
-                    </svg>
-                  </div>
-                  <div className="achievement-content">
-                    <span className="achievement-value">Automated Scoring System</span>
-                    <span className="achievement-desc">Real-time candidate evaluation</span>
+                    <span className="achievement-value">Apache Spark Assessment</span>
+                    <span className="achievement-desc">Comprehensive data engineering evaluation</span>
                   </div>
                 </div>
                 
@@ -941,21 +924,52 @@ const handleFormSubmit = async (e) => {
                     </svg>
                   </div>
                   <div className="achievement-content">
-                    <span className="achievement-value">Advanced Analytics Dashboard</span>
-                    <span className="achievement-desc">Deep insights into hiring patterns</span>
+                    <span className="achievement-value">Skills-Based Evaluation</span>
+                    <span className="achievement-desc">Real-world big data scenarios</span>
+                  </div>
+                </div>
+                
+                <div className="achievement-item">
+                  <div className="achievement-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                  </div>
+                  <div className="achievement-content">
+                    <span className="achievement-value">Automated Scoring</span>
+                    <span className="achievement-desc">Intelligent assessment algorithms</span>
                   </div>
                 </div>
               </div>
             </div>
 
             <div className="client-technologies">
-              <h4>Technologies Used</h4>
+              <h4>Technologies & Skills Assessed</h4>
               <div className="tech-tags">
-                <span className="tech-tag">Machine Learning</span>
-                <span className="tech-tag">Data Engineering</span>
-                <span className="tech-tag">Big Data</span>
-                <span className="tech-tag">Data Analytics</span>
                 <span className="tech-tag">Apache Spark</span>
+                <span className="tech-tag">PySpark</span>
+                <span className="tech-tag">Scala</span>
+                <span className="tech-tag">Data Engineering</span>
+                <span className="tech-tag">Big Data Processing</span>
+                <span className="tech-tag">ETL Pipelines</span>
+              </div>
+            </div>
+
+            <div className="client-impact">
+              <h4>Project Impact</h4>
+              <div className="impact-grid">
+                <div className="impact-item">
+                  <span className="impact-metric">400+</span>
+                  <span className="impact-label">Assessment Questions</span>
+                </div>
+                <div className="impact-item">
+                  <span className="impact-metric">10,000+</span>
+                  <span className="impact-label">Companies Using Platform</span>
+                </div>
+                <div className="impact-item">
+                  <span className="impact-metric">Data Engineers</span>
+                  <span className="impact-label">Successfully Assessed</span>
+                </div>
               </div>
             </div>
           </div>
