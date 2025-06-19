@@ -2588,9 +2588,9 @@ html {
   color: inherit;
 }
 
-/* Add these styles to your App.css file */
+/* Add these styles to your App.css file - Isolated to clients section only */
 
-/* Clients Section - TestGorilla Focus */
+/* Clients Section - LuaData Purple Only */
 .clients-section {
   padding: 120px 0;
   background: linear-gradient(135deg, #0a0f1c 0%, #1a1f2e 100%);
@@ -2606,8 +2606,8 @@ html {
   right: 0;
   bottom: 0;
   background: 
-    radial-gradient(circle at 20% 50%, rgba(120, 119, 198, 0.1) 0%, transparent 50%),
-    radial-gradient(circle at 80% 20%, rgba(255, 119, 198, 0.1) 0%, transparent 50%);
+    radial-gradient(circle at 20% 50%, rgba(124, 119, 198, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 80% 20%, rgba(124, 119, 198, 0.1) 0%, transparent 50%);
   pointer-events: none;
 }
 
@@ -2617,15 +2617,15 @@ html {
 }
 
 /* Featured Client Card */
-.featured-client {
+.clients-section .featured-client {
   max-width: 900px;
   margin: 0 auto 60px auto;
 }
 
-.client-story-card.featured {
-  background: rgba(255, 255, 255, 0.05);
+.clients-section .client-story-card.featured {
+  background: rgba(124, 119, 198, 0.08);
   backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(124, 119, 198, 0.15);
   border-radius: 24px;
   padding: 40px;
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
@@ -2633,130 +2633,101 @@ html {
   overflow: hidden;
 }
 
-.client-story-card.featured::before {
+.clients-section .client-story-card.featured::before {
   content: '';
   position: absolute;
   top: 0;
   left: 0;
   right: 0;
   height: 4px;
-  background: linear-gradient(90deg, #FF1B6B, #FF6B9D); /* TestGorilla's pink branding */
+  background: #7C77C6;
 }
 
-.client-story-card.featured:hover {
+.clients-section .client-story-card.featured:hover {
   transform: translateY(-5px);
-  border-color: rgba(255, 255, 255, 0.2);
-  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.3);
+  border-color: rgba(124, 119, 198, 0.25);
+  box-shadow: 0 25px 50px rgba(124, 119, 198, 0.2);
 }
 
 /* Client Header */
-.client-header {
+.clients-section .client-header {
   display: flex;
   align-items: flex-start;
   gap: 20px;
   margin-bottom: 30px;
   padding-bottom: 25px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  border-bottom: 1px solid rgba(124, 119, 198, 0.2);
 }
 
-.client-logo-large {
+.clients-section .client-logo-large {
   width: 70px;
   height: 70px;
-  background: white; /* White background for logo visibility */
+  background: #7C77C6;
   border-radius: 16px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 8px;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  position: relative;
+  box-shadow: 0 4px 12px rgba(124, 119, 198, 0.3);
 }
 
-.client-logo-img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain;
-  border-radius: 8px;
-}
-
-/* Fallback logo styling */
-.fallback-logo {
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(135deg, #FF1B6B, #FF6B9D); /* TestGorilla's pink */
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex-direction: column;
-  gap: 2px;
-}
-
-.gorilla-icon {
-  width: 24px;
-  height: 24px;
+.clients-section .client-logo-large svg {
+  width: 32px;
+  height: 32px;
   color: white;
 }
 
-.logo-text {
-  color: white;
-  font-size: 0.75rem;
-  font-weight: 700;
-  letter-spacing: 0.5px;
-}
-
-.client-info {
+.clients-section .client-info {
   flex: 1;
 }
 
-.client-info h3 {
+.clients-section .client-info h3 {
   color: white;
   font-size: 2rem;
   font-weight: 700;
   margin: 0 0 8px 0;
 }
 
-.client-industry {
-  color: #94a3b8;
+.clients-section .client-industry {
+  color: rgba(124, 119, 198, 0.8);
   font-size: 1rem;
   display: block;
   margin-bottom: 10px;
 }
 
-.client-website {
+.clients-section .client-website {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  color: #FF1B6B; /* TestGorilla's brand color */
+  color: #7C77C6;
   text-decoration: none;
   font-weight: 500;
   transition: all 0.2s ease;
   padding: 8px 16px;
-  background: rgba(255, 27, 107, 0.1);
+  background: rgba(124, 119, 198, 0.15);
   border-radius: 20px;
-  border: 1px solid rgba(255, 27, 107, 0.2);
+  border: 1px solid rgba(124, 119, 198, 0.25);
 }
 
-.client-website:hover {
-  color: #FF6B9D;
-  background: rgba(255, 107, 157, 0.1);
-  border-color: rgba(255, 107, 157, 0.3);
+.clients-section .client-website:hover {
+  color: white;
+  background: rgba(124, 119, 198, 0.25);
+  border-color: rgba(124, 119, 198, 0.35);
   transform: translateY(-1px);
 }
 
-.client-website svg {
+.clients-section .client-website svg {
   width: 16px;
   height: 16px;
 }
 
 /* Client Content */
-.client-content {
+.clients-section .client-content {
   display: grid;
   gap: 35px;
 }
 
-.client-description p {
+.clients-section .client-description p {
   color: #e2e8f0;
   font-size: 1.125rem;
   line-height: 1.7;
@@ -2764,41 +2735,42 @@ html {
 }
 
 /* Achievements */
-.client-achievements h4,
-.client-technologies h4 {
+.clients-section .client-achievements h4,
+.clients-section .client-technologies h4,
+.clients-section .client-impact h4 {
   color: white;
   font-size: 1.25rem;
   font-weight: 600;
   margin-bottom: 20px;
 }
 
-.achievements-grid {
+.clients-section .achievements-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
   gap: 20px;
 }
 
-.achievement-item {
+.clients-section .achievement-item {
   display: flex;
   align-items: center;
   gap: 15px;
   padding: 20px;
-  background: rgba(255, 255, 255, 0.02);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(124, 119, 198, 0.05);
+  border: 1px solid rgba(124, 119, 198, 0.15);
   border-radius: 12px;
   transition: all 0.3s ease;
 }
 
-.achievement-item:hover {
-  background: rgba(255, 255, 255, 0.05);
-  border-color: rgba(255, 255, 255, 0.1);
+.clients-section .achievement-item:hover {
+  background: rgba(124, 119, 198, 0.1);
+  border-color: rgba(124, 119, 198, 0.2);
   transform: translateY(-2px);
 }
 
-.achievement-icon {
+.clients-section .achievement-icon {
   width: 40px;
   height: 40px;
-  background: linear-gradient(135deg, #FF1B6B, #FF6B9D); /* TestGorilla colors */
+  background: #7C77C6;
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -2806,59 +2778,96 @@ html {
   flex-shrink: 0;
 }
 
-.achievement-icon svg {
+.clients-section .achievement-icon svg {
   width: 20px;
   height: 20px;
   color: white;
 }
 
-.achievement-content {
+.clients-section .achievement-content {
   display: flex;
   flex-direction: column;
 }
 
-.achievement-value {
+.clients-section .achievement-value {
   color: white;
   font-weight: 600;
   font-size: 1rem;
   line-height: 1.2;
 }
 
-.achievement-desc {
-  color: #94a3b8;
+.clients-section .achievement-desc {
+  color: rgba(124, 119, 198, 0.8);
   font-size: 0.875rem;
   margin-top: 3px;
 }
 
 /* Technologies */
-.tech-tags {
+.clients-section .tech-tags {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
 }
 
-.tech-tag {
-  background: rgba(255, 27, 107, 0.15); /* TestGorilla pink */
-  color: #FF1B6B;
+.clients-section .tech-tag {
+  background: rgba(124, 119, 198, 0.15);
+  color: #7C77C6;
   padding: 8px 16px;
   border-radius: 20px;
   font-size: 0.875rem;
   font-weight: 500;
-  border: 1px solid rgba(255, 27, 107, 0.2);
+  border: 1px solid rgba(124, 119, 198, 0.25);
   transition: all 0.2s ease;
 }
 
-.tech-tag:hover {
-  background: rgba(255, 107, 157, 0.15);
-  color: #FF6B9D;
-  border-color: rgba(255, 107, 157, 0.3);
+.clients-section .tech-tag:hover {
+  background: rgba(124, 119, 198, 0.25);
+  color: white;
+  border-color: rgba(124, 119, 198, 0.35);
   transform: translateY(-1px);
 }
 
+/* Impact Metrics */
+.clients-section .impact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 25px;
+}
+
+.clients-section .impact-item {
+  text-align: center;
+  padding: 20px;
+  background: rgba(124, 119, 198, 0.05);
+  border: 1px solid rgba(124, 119, 198, 0.15);
+  border-radius: 12px;
+  transition: all 0.3s ease;
+}
+
+.clients-section .impact-item:hover {
+  background: rgba(124, 119, 198, 0.1);
+  border-color: rgba(124, 119, 198, 0.2);
+  transform: translateY(-2px);
+}
+
+.clients-section .impact-metric {
+  display: block;
+  color: #7C77C6;
+  font-size: 1.75rem;
+  font-weight: 700;
+  line-height: 1;
+  margin-bottom: 8px;
+}
+
+.clients-section .impact-label {
+  color: rgba(124, 119, 198, 0.8);
+  font-size: 0.875rem;
+  font-weight: 500;
+}
+
 /* Call to Action */
-.client-cta {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
+.clients-section .client-cta {
+  background: rgba(124, 119, 198, 0.05);
+  border: 1px solid rgba(124, 119, 198, 0.15);
   border-radius: 20px;
   padding: 40px;
   text-align: center;
@@ -2866,25 +2875,25 @@ html {
   margin: 0 auto;
 }
 
-.cta-content h3 {
+.clients-section .cta-content h3 {
   color: white;
   font-size: 1.75rem;
   font-weight: 600;
   margin-bottom: 15px;
 }
 
-.cta-content p {
+.clients-section .cta-content p {
   color: #e2e8f0;
   font-size: 1.125rem;
   line-height: 1.6;
   margin-bottom: 25px;
 }
 
-.cta-content .btn-primary {
+.clients-section .cta-content .btn-primary {
   display: inline-flex;
   align-items: center;
   gap: 10px;
-  background: linear-gradient(135deg, #7C77C6, #FF77C6);
+  background: #7C77C6;
   color: white;
   padding: 16px 32px;
   border-radius: 12px;
@@ -2895,12 +2904,13 @@ html {
   cursor: pointer;
 }
 
-.cta-content .btn-primary:hover {
+.clients-section .cta-content .btn-primary:hover {
   transform: translateY(-2px);
   box-shadow: 0 10px 25px rgba(124, 119, 198, 0.4);
+  background: rgba(124, 119, 198, 0.9);
 }
 
-.cta-content .btn-primary svg {
+.clients-section .cta-content .btn-primary svg {
   width: 20px;
   height: 20px;
 }
@@ -2911,60 +2921,73 @@ html {
     padding: 80px 0;
   }
 
-  .client-story-card.featured {
+  .clients-section .client-story-card.featured {
     padding: 30px;
   }
 
-  .client-header {
+  .clients-section .client-header {
     flex-direction: column;
     text-align: center;
     gap: 15px;
   }
 
-  .client-info h3 {
+  .clients-section .client-info h3 {
     font-size: 1.5rem;
   }
 
-  .achievements-grid {
+  .clients-section .achievements-grid {
     grid-template-columns: 1fr;
     gap: 15px;
   }
 
-  .achievement-item {
+  .clients-section .achievement-item {
     padding: 15px;
   }
 
-  .client-cta {
+  .clients-section .impact-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .clients-section .client-cta {
     padding: 30px 20px;
   }
 
-  .cta-content h3 {
+  .clients-section .cta-content h3 {
     font-size: 1.5rem;
   }
 
-  .cta-content p {
+  .clients-section .cta-content p {
     font-size: 1rem;
   }
 }
 
 @media (max-width: 480px) {
-  .client-story-card.featured {
+  .clients-section .client-story-card.featured {
     padding: 25px;
   }
 
-  .client-logo-large {
+  .clients-section .client-logo-large {
     width: 60px;
     height: 60px;
   }
 
-  .tech-tags {
+  .clients-section .client-logo-large svg {
+    width: 28px;
+    height: 28px;
+  }
+
+  .clients-section .tech-tags {
     justify-content: center;
   }
 
-  .achievement-item {
+  .clients-section .achievement-item {
     flex-direction: column;
     text-align: center;
     gap: 10px;
   }
-}
 
+  .clients-section .impact-grid {
+    grid-template-columns: 1fr;
+  }
+}
