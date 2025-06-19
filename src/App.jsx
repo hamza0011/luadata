@@ -952,10 +952,10 @@ const handleFormSubmit = async (e) => {
               <h4>Technologies Used</h4>
               <div className="tech-tags">
                 <span className="tech-tag">Machine Learning</span>
-                <span className="tech-tag">Natural Language Processing</span>
-                <span className="tech-tag">Python</span>
+                <span className="tech-tag">Big Data</span>
+                <span className="tech-tag">Apache Spark</span>
+                <span className="tech-tag">Data Engineering</span>
                 <span className="tech-tag">Data Analytics</span>
-                <span className="tech-tag">API Integration</span>
               </div>
             </div>
           </div>
