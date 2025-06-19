@@ -2588,7 +2588,7 @@ html {
   color: inherit;
 }
 
-/* Add these styles to your App.css file - Isolated to clients section only */
+/* Complete CSS Code - Add to your App.css file */
 
 /* Clients Section - LuaData Purple Only */
 .clients-section {
@@ -2649,7 +2649,7 @@ html {
   box-shadow: 0 25px 50px rgba(124, 119, 198, 0.2);
 }
 
-/* Client Header - Proper spacing and layout */
+/* Client Header - Logo and info side by side */
 .clients-section .client-header {
   display: flex;
   align-items: flex-start;
@@ -2659,7 +2659,7 @@ html {
   border-bottom: 1px solid rgba(124, 119, 198, 0.2);
 }
 
-/* Logo Container - White box, top-left positioned */
+/* Logo Container - White box, replaces h3 TestGorilla text */
 .clients-section .client-logo-container {
   width: 120px;
   height: 60px;
@@ -2721,22 +2721,13 @@ html {
   letter-spacing: 1px;
 }
 
-/* Client Info - Proper text spacing */
+/* Client Info - No h3 title, only industry and link */
 .clients-section .client-info {
   flex: 1;
-  min-width: 0; /* Allow text to wrap */
+  min-width: 0;
   display: flex;
   flex-direction: column;
   gap: 8px;
-}
-
-.clients-section .client-info h3 {
-  color: white;
-  font-size: 2rem;
-  font-weight: 700;
-  margin: 0;
-  line-height: 1.2;
-  word-wrap: break-word;
 }
 
 .clients-section .client-industry {
@@ -3007,10 +2998,6 @@ html {
   .clients-section .client-info {
     align-items: center;
     text-align: center;
-  }
-
-  .clients-section .client-info h3 {
-    font-size: 1.5rem;
   }
 
   .clients-section .achievements-grid {
