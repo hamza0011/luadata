@@ -454,7 +454,7 @@ const handleFormSubmit = async (e) => {
                   <a href="#services" className="nav-link" role="menuitem" onClick={(e) => handleNavClick(e, '#services')}>Services</a>
                 </li>
                 <li role="none">
-                  <a href="#machinelearning" className="nav-link" role="menuitem" onClick={(e) => handleNavClick(e, '#machinelearning')}>Solutions</a>
+                  <a href="#solutions" className="nav-link" role="menuitem" onClick={(e) => handleNavClick(e, '#solutions')}>Solutions</a>
                 </li>
                 <li role="none">
                   <a href="#about" className="nav-link" role="menuitem" onClick={(e) => handleNavClick(e, '#about')}>About</a>
