@@ -849,7 +849,6 @@ const handleFormSubmit = async (e) => {
         </div>
       </section>
 
-
 {/* Past Clients Section - TestGorilla */}
 <section className="clients-section" id="clients">
   <div className="container">
@@ -868,11 +867,11 @@ const handleFormSubmit = async (e) => {
           <div className="client-header">
             <div className="client-logo-large">
               <img 
-                src="https://www.testgorilla.com/_next/static/media/logo.a8fbd588.svg" 
+                src="/logo.svg" 
                 alt="TestGorilla Logo" 
                 className="client-logo-img"
                 onError={(e) => {
-                  // Fallback to a custom gorilla icon if favicon fails
+                  // Fallback if SVG fails to load from public folder
                   e.target.style.display = 'none';
                   e.target.nextSibling.style.display = 'flex';
                 }}
@@ -887,7 +886,7 @@ const handleFormSubmit = async (e) => {
             <div className="client-info">
               <h3>TestGorilla</h3>
               <span className="client-industry">HR Tech • Skills Assessment Platform</span>
-              <a href="https://www.testgorilla.com/test-library/programming-skills-tests/apache-spark-for-data-engineers-test/" target="_blank" rel="noopener noreferrer" className="client-website">
+              <a href="https://testgorilla.com" target="_blank" rel="noopener noreferrer" className="client-website">
                 testgorilla.com
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
                   <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
@@ -951,10 +950,10 @@ const handleFormSubmit = async (e) => {
               <h4>Technologies Used</h4>
               <div className="tech-tags">
                 <span className="tech-tag">Machine Learning</span>
-                <span className="tech-tag">Data Engineering</span>
-                <span className="tech-tag">Apache Spark</span>
-                <span className="tech-tag">Big Data</span>
+                <span className="tech-tag">Natural Language Processing</span>
+                <span className="tech-tag">Python</span>
                 <span className="tech-tag">Data Analytics</span>
+                <span className="tech-tag">API Integration</span>
               </div>
             </div>
           </div>
