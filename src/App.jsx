@@ -849,7 +849,6 @@ const handleFormSubmit = async (e) => {
         </div>
       </section>
 
-      // Add this section after the Stats section (around line 800, before Contact section)
 
 {/* Past Clients Section - TestGorilla */}
 <section className="clients-section" id="clients">
