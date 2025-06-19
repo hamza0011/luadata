@@ -2669,12 +2669,17 @@ html {
   justify-content: center;
   flex-shrink: 0;
   box-shadow: 0 4px 12px rgba(124, 119, 198, 0.3);
+  position: relative;
 }
 
 .clients-section .client-logo-large svg {
   width: 32px;
   height: 32px;
   color: white;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 
 .clients-section .client-info {
@@ -2975,6 +2980,10 @@ html {
   .clients-section .client-logo-large svg {
     width: 28px;
     height: 28px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
   }
 
   .clients-section .tech-tags {
