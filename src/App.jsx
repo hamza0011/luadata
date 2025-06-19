@@ -849,6 +849,137 @@ const handleFormSubmit = async (e) => {
         </div>
       </section>
 
+      // Add this section after the Stats section (around line 800, before Contact section)
+
+{/* Past Clients Section - TestGorilla */}
+<section className="clients-section" id="clients">
+  <div className="container">
+    <div className="section-header">
+      <div className="section-badge">
+        <span>Success Story</span>
+      </div>
+      <h2 className="section-title">Trusted by Industry Leaders</h2>
+      <p className="section-subtitle">See how we've helped companies transform their operations with AI and data science</p>
+    </div>
+
+    <div className="clients-showcase">
+      {/* Featured Client - TestGorilla */}
+      <div className="featured-client">
+        <div className="client-story-card featured">
+          <div className="client-header">
+            <div className="client-logo-large">
+              <img 
+                src="https://www.testgorilla.com/favicon.ico" 
+                alt="TestGorilla Logo" 
+                className="client-logo-img"
+                onError={(e) => {
+                  // Fallback to a custom gorilla icon if favicon fails
+                  e.target.style.display = 'none';
+                  e.target.nextSibling.style.display = 'flex';
+                }}
+              />
+              <div className="fallback-logo" style={{ display: 'none' }}>
+                <svg viewBox="0 0 24 24" fill="currentColor" className="gorilla-icon">
+                  <path d="M12 2C8.13 2 5 5.13 5 9c0 1.74.63 3.34 1.67 4.58L4.34 15.9c-.39.39-.39 1.02 0 1.41.39.39 1.02.39 1.41 0l2.33-2.33C9.16 16.37 10.5 17 12 17s2.84-.63 3.92-1.02l2.33 2.33c.39.39 1.02.39 1.41 0 .39-.39.39-1.02 0-1.41l-2.33-2.33C18.37 12.34 19 10.74 19 9c0-3.87-3.13-7-7-7zm-2 7c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm4 0c-.55 0-1-.45-1-1s.45-1 1-1 1 .45 1 1-.45 1-1 1zm-2 4c-1.1 0-2-.9-2-2h4c0 1.1-.9 2-2 2z"/>
+                </svg>
+                <span className="logo-text">TG</span>
+              </div>
+            </div>
+            <div className="client-info">
+              <h3>TestGorilla</h3>
+              <span className="client-industry">HR Tech • Skills Assessment Platform</span>
+              <a href="https://testgorilla.com" target="_blank" rel="noopener noreferrer" className="client-website">
+                testgorilla.com
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                  <path d="M18 13v6a2 2 0 01-2 2H5a2 2 0 01-2-2V8a2 2 0 012-2h6"/>
+                  <polyline points="15,3 21,3 21,9"/>
+                  <line x1="10" y1="14" x2="21" y2="3"/>
+                </svg>
+              </a>
+            </div>
+          </div>
+          
+          <div className="client-content">
+            <div className="client-description">
+              <p>
+                We partnered with TestGorilla to enhance their skills assessment platform with advanced AI capabilities, 
+                improving candidate evaluation accuracy and streamlining the hiring process for thousands of companies worldwide.
+              </p>
+            </div>
+            
+            <div className="client-achievements">
+              <h4>Key Achievements</h4>
+              <div className="achievements-grid">
+                <div className="achievement-item">
+                  <div className="achievement-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                      <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                    </svg>
+                  </div>
+                  <div className="achievement-content">
+                    <span className="achievement-value">Enhanced Assessment Accuracy</span>
+                    <span className="achievement-desc">AI-powered evaluation algorithms</span>
+                  </div>
+                </div>
+                
+                <div className="achievement-item">
+                  <div className="achievement-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                      <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/>
+                    </svg>
+                  </div>
+                  <div className="achievement-content">
+                    <span className="achievement-value">Automated Scoring System</span>
+                    <span className="achievement-desc">Real-time candidate evaluation</span>
+                  </div>
+                </div>
+                
+                <div className="achievement-item">
+                  <div className="achievement-icon">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+                      <path d="M18 20L18 10M12 20L12 4M6 20L6 14"/>
+                    </svg>
+                  </div>
+                  <div className="achievement-content">
+                    <span className="achievement-value">Advanced Analytics Dashboard</span>
+                    <span className="achievement-desc">Deep insights into hiring patterns</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <div className="client-technologies">
+              <h4>Technologies Used</h4>
+              <div className="tech-tags">
+                <span className="tech-tag">Machine Learning</span>
+                <span className="tech-tag">Natural Language Processing</span>
+                <span className="tech-tag">Python</span>
+                <span className="tech-tag">Data Analytics</span>
+                <span className="tech-tag">API Integration</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      {/* Call to Action */}
+      <div className="client-cta">
+        <div className="cta-content">
+          <h3>Ready to Transform Your Business?</h3>
+          <p>Join TestGorilla and other industry leaders who trust us to deliver intelligent AI solutions that drive real results.</p>
+          <a href="#contact" className="btn-primary" onClick={(e) => handleNavClick(e, '#contact')}>
+            <span>Start Your Project</span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true">
+              <path d="M5 12H19M19 12L12 5M19 12L12 19"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+      
+
       {/* Contact Section */}
       <section className="contact-section" id="contact">
         <div className="container">
