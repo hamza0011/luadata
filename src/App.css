@@ -2562,3 +2562,29 @@ html {
     color: #34d399;
   }
 }
+
+
+.address-section {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.address-line {
+  display: block;
+  margin-top: 4px;
+  color: #0f172a; 
+}
+
+.phone-block {
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-link {
+  display: block;
+  margin-top: 4px;
+  text-decoration: none;
+  color: inherit;
+}
+
