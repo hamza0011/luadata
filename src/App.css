@@ -2679,6 +2679,22 @@ html {
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Ensure it applies on mobile devices */
+@media (max-width: 768px) {
+  .clients-section .client-logo-container {
+    width: 180px !important;
+    min-width: 180px !important;
+  }
+}
+
+/* For very small screens if needed */
+@media (max-width: 480px) {
+  .clients-section .client-logo-container {
+    width: 180px !important;
+    min-width: 180px !important;
+  }
+}
+
 .clients-section .client-logo-container:hover {
   border-color: rgba(124, 119, 198, 0.4);
   box-shadow: 0 4px 12px rgba(124, 119, 198, 0.15);
