@@ -2661,18 +2661,18 @@ html {
 
 /* Logo Container - White box, replaces h3 TestGorilla text */
 .clients-section .client-logo-container {
-  width: 120px;
-  height: 60px;
-  min-width: 120px;
-  min-height: 60px;
+  width: 180px; /* 120px × 1.5 */
+  height: 90px; /* 60px × 1.5 */
+  min-width: 180px; /* 120px × 1.5 */
+  min-height: 90px; /* 60px × 1.5 */
   background: white;
   border: 1px solid rgba(124, 119, 198, 0.2);
-  border-radius: 12px;
+  border-radius: 18px; /* 12px × 1.5 for proportional scaling */
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 12px;
+  padding: 18px; /* 12px × 1.5 for proportional scaling */
   position: relative;
   transition: all 0.3s ease;
   box-sizing: border-box;
