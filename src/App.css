@@ -2662,36 +2662,59 @@ html {
 /* Logo Container - White box, replaces h3 TestGorilla text */
 .clients-section .client-logo-container {
   width: 180px; /* 120px × 1.5 */
-  height: 90px; /* 60px × 1.5 */
+  height: 60px;
   min-width: 180px; /* 120px × 1.5 */
-  min-height: 90px; /* 60px × 1.5 */
+  min-height: 60px;
   background: white;
   border: 1px solid rgba(124, 119, 198, 0.2);
-  border-radius: 18px; /* 12px × 1.5 for proportional scaling */
+  border-radius: 12px;
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
-  padding: 18px; /* 12px × 1.5 for proportional scaling */
+  padding: 12px;
   position: relative;
   transition: all 0.3s ease;
   box-sizing: border-box;
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
 }
 
-/* Ensure it applies on mobile devices */
+/* Logo image styling */
+.clients-section .client-logo-img {
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+}
+
+/* Logo fallback styling */
+.clients-section .logo-fallback {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  color: #7c77c6;
+  font-size: 18px;
+}
+
+/* Mobile specific adjustments */
 @media (max-width: 768px) {
   .clients-section .client-logo-container {
     width: 180px !important;
     min-width: 180px !important;
+    padding: 8px; /* Slightly less padding on mobile */
   }
-}
-
-/* For very small screens if needed */
-@media (max-width: 480px) {
-  .clients-section .client-logo-container {
-    width: 180px !important;
-    min-width: 180px !important;
+  
+  .clients-section .client-logo-img {
+    max-width: 100%;
+    max-height: 100%;
+  }
+  
+  .clients-section .logo-fallback {
+    font-size: 16px; /* Slightly smaller fallback text on mobile */
   }
 }
 
