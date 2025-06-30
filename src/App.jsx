@@ -1071,13 +1071,13 @@ const handleFormSubmit = async (e) => {
                 <div className="form-group floating-label">
                   <input 
                     type="text" 
-                    id="company" 
-                    name="company" 
+                    id="phone" 
+                    name="phone" 
                     className="form-input" 
                     autoComplete="organization"
                     placeholder=" "
                   />
-                  <label htmlFor="company">Company Name</label>
+                  <label htmlFor="phone">Phone</label>
                   <div className="input-line"></div>
                 </div>
 
