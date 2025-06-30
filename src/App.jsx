@@ -8,6 +8,8 @@ const LuaDataApp = () => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isHeaderScrolled, setIsHeaderScrolled] = useState(false);
   const [headerVisible, setHeaderVisible] = useState(true);
+  const [showErrorNotification, setShowErrorNotification] = useState(false);
+  const [errorMessage, setErrorMessage] = useState('');
 
   const heroParticlesRef = useRef(null);
   const observerRef = useRef(null);
@@ -314,6 +316,21 @@ const handleFormSubmit = async (e) => {
 
   const form = e.target;
   const formData = new FormData(form);
+
+  const phone = formData.get('phone')?.trim();
+  
+  // Check if phone is empty
+  if (!phone) {
+    setErrorMessage('Please enter phone number');
+    setShowErrorNotification(true);
+    
+    // Hide error notification after 3 seconds
+    setTimeout(() => {
+      setShowErrorNotification(false);
+    }, 3000);
+    
+    return; // Stop form submission
+  }
 
   // Add form name for Netlify
   formData.append('form-name', 'contact');
@@ -1070,15 +1087,18 @@ const handleFormSubmit = async (e) => {
 
                 <div className="form-group floating-label">
                   <input 
-                    type="text" 
+                    type="tel"
                     id="phone" 
                     name="phone" 
                     className="form-input" 
-                    autoComplete="organization"
+                    required // Add this
+                    autoComplete="tel" // Changed from "organization"
                     placeholder=" "
+                    aria-describedby="phone-error"
                   />
-                  <label htmlFor="phone">Phone</label>
+                  <label htmlFor="phone">Phone *</label> {/* Add * here */}
                   <div className="input-line"></div>
+                  <div className="error-message" id="phone-error" role="alert"></div>
                 </div>
 
                 <div className="form-group floating-label">
@@ -1111,6 +1131,20 @@ const handleFormSubmit = async (e) => {
                 </button>
                 <div id="submit-status" className="sr-only" role="status" aria-live="polite"></div>
               </form>
+                {showErrorNotification && (
+                  <div className="form-notification error-notification">
+                    <div className="notification-content">
+                      <div className="notification-icon">
+                        ✗
+                      </div>
+                      <div className="notification-text">
+                        <strong>Error!</strong>
+                        <p>{errorMessage}</p>
+                      </div>
+                    </div>
+                  </div>
+                )}
+              
                 {showNotification && (
     <div className="form-notification success-notification">
       <div className="notification-content">
