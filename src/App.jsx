@@ -312,7 +312,6 @@ const LuaDataApp = () => {
 
 const handleFormSubmit = async (e) => {
   e.preventDefault();
-  setIsFormLoading(true);
 
   const form = e.target;
   const formData = new FormData(form);
@@ -331,6 +330,9 @@ const handleFormSubmit = async (e) => {
     
     return; // Stop form submission
   }
+
+  setIsFormLoading(true);
+
 
   // Add form name for Netlify
   formData.append('form-name', 'contact');
