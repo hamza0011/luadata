@@ -1098,7 +1098,7 @@ const handleFormSubmit = async (e) => {
                     placeholder=" "
                     aria-describedby="phone-error"
                   />
-                  <label htmlFor="phone">Phone Number(for WhatsApp updates)*</label> {/* Add * here */}
+                  <label htmlFor="phone">Phone Number(for WhatsApp updates)</label> {/* Add * here */}
                   <div className="input-line"></div>
                   <div className="error-message" id="phone-error" role="alert"></div>
                 </div>
