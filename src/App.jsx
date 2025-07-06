@@ -1066,7 +1066,7 @@ const handleFormSubmit = async (e) => {
                     placeholder=" "
                     aria-describedby="name-error"
                   />
-                  <label htmlFor="name">Your Name *</label>
+                  <label htmlFor="name">Your Name</label>
                   <div className="input-line"></div>
                   <div className="error-message" id="name-error" role="alert"></div>
                 </div>
@@ -1082,7 +1082,7 @@ const handleFormSubmit = async (e) => {
                     placeholder=" "
                     aria-describedby="email-error"
                   />
-                  <label htmlFor="email">Your Email *</label>
+                  <label htmlFor="email">Your Email</label>
                   <div className="input-line"></div>
                   <div className="error-message" id="email-error" role="alert"></div>
                 </div>
@@ -1098,7 +1098,7 @@ const handleFormSubmit = async (e) => {
                     placeholder=" "
                     aria-describedby="phone-error"
                   />
-                  <label htmlFor="phone">Phone Number (for WhatsApp updates)</label> {/* Add * here */}
+                  <label htmlFor="phone">Phone Number(for WhatsApp updates)*</label> {/* Add * here */}
                   <div className="input-line"></div>
                   <div className="error-message" id="phone-error" role="alert"></div>
                 </div>
@@ -1113,7 +1113,7 @@ const handleFormSubmit = async (e) => {
                     placeholder=" "
                     aria-describedby="message-error"
                   ></textarea>
-                  <label htmlFor="message">Tell us about your project... *</label>
+                  <label htmlFor="message">Tell us about your project...</label>
                   <div className="input-line"></div>
                   <div className="error-message" id="message-error" role="alert"></div>
                 </div>
