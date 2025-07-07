@@ -335,7 +335,7 @@ const handleFormSubmit = async (e) => {
 
 
   // Add form name for Netlify
-  formData.append('form-name', 'contact');
+  // formData.append('form-name', 'contact');
 
   try {
     // Submit to Netlify with correct headers
