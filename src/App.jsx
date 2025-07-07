@@ -1046,7 +1046,7 @@ const handleFormSubmit = async (e) => {
             </div>
 
             <div className="contact-form-container">
-              <form name="contact" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="contact-form" onSubmit={handleFormSubmit} noValidate>
+              <form name="contact-v2" method="POST" data-netlify="true" data-netlify-honeypot="bot-field" className="contact-form" onSubmit={handleFormSubmit} noValidate>
                 <input type="hidden" name="form-name" value="contact" />
                 <p style={{ display: 'none' }}>
                   <label>
