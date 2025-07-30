@@ -21,49 +21,65 @@
       rel="stylesheet"
     />
 
-        <!-- Dynamic Google Analytics Setup -->
+      <!-- Determine Measurement ID BEFORE loading script -->
     <script>
-      // Determine which measurement ID to use based on domain
-      function getMeasurementId() {
-        const hostname = window.location.hostname;
-        
-        if (hostname.includes('luadata.com')) {
-          return 'G-60DJ61ZW6C'; // Replace with your .com measurement ID
-        } else if (hostname.includes('luadata.net')) {
-          return 'G-L56055LC36'; // Replace with your .net measurement ID
-        } else {
-          // Fallback for localhost or other domains during development
-          return 'G-60DJ61ZW6C'; // Choose one as default
-        }
+      // REPLACE THESE WITH YOUR ACTUAL MEASUREMENT IDs
+      const MEASUREMENT_IDS = {
+        'luadata.com': 'G-60DJ61ZW6C',    // Replace with your .com ID
+        'luadata.net': 'G-L56055LC36',    // Replace with your .net ID
+      };
+      
+      // Get current hostname
+      const hostname = window.location.hostname;
+      console.log('Current hostname:', hostname);
+      
+      // Determine which measurement ID to use
+      let measurementId;
+      if (hostname.includes('luadata.com')) {
+        measurementId = MEASUREMENT_IDS['luadata.com'];
+        console.log('Using .com measurement ID');
+      } else if (hostname.includes('luadata.net')) {
+        measurementId = MEASUREMENT_IDS['luadata.net'];
+        console.log('Using .net measurement ID');
+      } else {
+        // Default to .net for localhost/development
+        measurementId = MEASUREMENT_IDS['luadata.net'];
+        console.log('Using default (.net) measurement ID for:', hostname);
       }
+      
+      console.log('Selected Measurement ID:', measurementId);
+      
+      // Store globally for later use
+      window.SELECTED_MEASUREMENT_ID = measurementId;
+    </script>
 
-      // Get the appropriate measurement ID
-      const measurementId = getMeasurementId();
-      
-      // Dynamically load Google Analytics script
-      const script = document.createElement('script');
-      script.async = true;
-      script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
-      document.head.appendChild(script);
-      
-      // Initialize gtag
+    <!-- Load Google Analytics Script with Selected ID -->
+    <script async src=""></script>
+    <script>
+      // Set the src after we have the measurement ID
+      const scripts = document.getElementsByTagName('script');
+      const gaScript = scripts[scripts.length - 2]; // The empty script above
+      gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${window.SELECTED_MEASUREMENT_ID}`;
+    </script>
+
+    <!-- Initialize Google Analytics -->
+    <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
       gtag('js', new Date());
 
-      // Configure Google Analytics with the appropriate measurement ID
-      gtag('config', measurementId, {
+      // Configure with the selected measurement ID
+      gtag('config', window.SELECTED_MEASUREMENT_ID, {
         page_title: 'LuaData - AI ML Data Science',
         page_location: window.location.href,
       });
 
-      // Google Ads Conversion Tracking Configuration (if needed for both domains)
+      // Google Ads Conversion Tracking (if needed for both domains)
       gtag('config', 'AW-17153791006');
       
-      // Debug log to verify which measurement ID is being used
-      console.log('Using GA4 Measurement ID:', measurementId, 'for domain:', window.location.hostname);
+      console.log('GA4 initialized with:', window.SELECTED_MEASUREMENT_ID);
     </script>
   </head>
   <body>
@@ -72,26 +88,21 @@
     
     <!-- Form Handler Script -->
     <script>
-      // Simple Form Handler - gtag + notification
       document.addEventListener('DOMContentLoaded', function() {
           const contactForm = document.querySelector('.contact-form');
           
           if (contactForm) {
               contactForm.addEventListener('submit', function(e) {
-                  e.preventDefault(); // Prevent default form submission
+                  e.preventDefault();
                   
-                  // Get form data
-                  const formData = new FormData(contactForm);
+                  console.log('Form submitted, firing GA4 events...');
                   
-                  // Fire gtag events immediately on form submission
+                  // Fire gtag events
                   gtag('event', 'generate_lead', {
                       'currency': 'USD',
                       'value': 50,
                       'event_category': 'Lead Generation',
-                      'event_label': 'Contact Form Submitted',
-                      'custom_parameters': {
-                          'domain': window.location.hostname
-                      }
+                      'event_label': 'Contact Form Submitted'
                   });
                   
                   gtag('event', 'conversion', {
@@ -104,16 +115,12 @@
                   gtag('event', 'form_submit_success', {
                       'event_category': 'Lead Generation',
                       'event_label': 'Contact Form Completed',
-                      'value': 50,
-                      'custom_parameters': {
-                          'domain': window.location.hostname
-                      }
+                      'value': 50
                   });
                   
-                  // Show success notification
-                  showSuccessNotification();
+                  console.log('GA4 events sent');
                   
-                  // Reset form
+                  showSuccessNotification();
                   contactForm.reset();
               });
           }
