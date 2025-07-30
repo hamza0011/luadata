@@ -21,26 +21,49 @@
       rel="stylesheet"
     />
 
-    <!-- Google Analytics & Google Ads Global Site Tag -->
-    <script
-      async
-      src="https://www.googletagmanager.com/gtag/js?id=G-L56055LC36"
-    ></script>
+        <!-- Dynamic Google Analytics Setup -->
     <script>
+      // Determine which measurement ID to use based on domain
+      function getMeasurementId() {
+        const hostname = window.location.hostname;
+        
+        if (hostname.includes('luadata.com')) {
+          return 'G-60DJ61ZW6C'; // Replace with your .com measurement ID
+        } else if (hostname.includes('luadata.net')) {
+          return 'G-L56055LC36'; // Replace with your .net measurement ID
+        } else {
+          // Fallback for localhost or other domains during development
+          return 'G-60DJ61ZW6C'; // Choose one as default
+        }
+      }
+
+      // Get the appropriate measurement ID
+      const measurementId = getMeasurementId();
+      
+      // Dynamically load Google Analytics script
+      const script = document.createElement('script');
+      script.async = true;
+      script.src = `https://www.googletagmanager.com/gtag/js?id=${measurementId}`;
+      document.head.appendChild(script);
+      
+      // Initialize gtag
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag("js", new Date());
+      gtag('js', new Date());
 
-      // Google Analytics Configuration
-      gtag("config", "G-L56055LC36", {
-        page_title: "LuaData - AI ML Data Science",
+      // Configure Google Analytics with the appropriate measurement ID
+      gtag('config', measurementId, {
+        page_title: 'LuaData - AI ML Data Science',
         page_location: window.location.href,
       });
 
-      // Google Ads Conversion Tracking Configuration
-      gtag("config", "AW-17153791006");
+      // Google Ads Conversion Tracking Configuration (if needed for both domains)
+      gtag('config', 'AW-17153791006');
+      
+      // Debug log to verify which measurement ID is being used
+      console.log('Using GA4 Measurement ID:', measurementId, 'for domain:', window.location.hostname);
     </script>
   </head>
   <body>
@@ -65,7 +88,10 @@
                       'currency': 'USD',
                       'value': 50,
                       'event_category': 'Lead Generation',
-                      'event_label': 'Contact Form Submitted'
+                      'event_label': 'Contact Form Submitted',
+                      'custom_parameters': {
+                          'domain': window.location.hostname
+                      }
                   });
                   
                   gtag('event', 'conversion', {
@@ -78,7 +104,10 @@
                   gtag('event', 'form_submit_success', {
                       'event_category': 'Lead Generation',
                       'event_label': 'Contact Form Completed',
-                      'value': 50
+                      'value': 50,
+                      'custom_parameters': {
+                          'domain': window.location.hostname
+                      }
                   });
                   
                   // Show success notification
@@ -89,7 +118,6 @@
               });
           }
       });
-
       // Show success notification
       function showSuccessNotification() {
           // Remove any existing notifications
