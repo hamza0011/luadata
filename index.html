@@ -21,65 +21,26 @@
       rel="stylesheet"
     />
 
-      <!-- Determine Measurement ID BEFORE loading script -->
-    <script>
-      // REPLACE THESE WITH YOUR ACTUAL MEASUREMENT IDs
-      const MEASUREMENT_IDS = {
-        'luadata.com': 'G-60DJ61ZW6C',    // Replace with your .com ID
-        'luadata.net': 'G-L56055LC36',    // Replace with your .net ID
-      };
-      
-      // Get current hostname
-      const hostname = window.location.hostname;
-      console.log('Current hostname:', hostname);
-      
-      // Determine which measurement ID to use
-      let measurementId;
-      if (hostname.includes('luadata.com')) {
-        measurementId = MEASUREMENT_IDS['luadata.com'];
-        console.log('Using .com measurement ID');
-      } else if (hostname.includes('luadata.net')) {
-        measurementId = MEASUREMENT_IDS['luadata.net'];
-        console.log('Using .net measurement ID');
-      } else {
-        // Default to .net for localhost/development
-        measurementId = MEASUREMENT_IDS['luadata.net'];
-        console.log('Using default (.net) measurement ID for:', hostname);
-      }
-      
-      console.log('Selected Measurement ID:', measurementId);
-      
-      // Store globally for later use
-      window.SELECTED_MEASUREMENT_ID = measurementId;
-    </script>
-
-    <!-- Load Google Analytics Script with Selected ID -->
-    <script async src=""></script>
-    <script>
-      // Set the src after we have the measurement ID
-      const scripts = document.getElementsByTagName('script');
-      const gaScript = scripts[scripts.length - 2]; // The empty script above
-      gaScript.src = `https://www.googletagmanager.com/gtag/js?id=${window.SELECTED_MEASUREMENT_ID}`;
-    </script>
-
-    <!-- Initialize Google Analytics -->
+    <!-- Google Analytics & Google Ads Global Site Tag -->
+    <script
+      async
+      src="https://www.googletagmanager.com/gtag/js?id=G-60DJ61ZW6C"
+    ></script>
     <script>
       window.dataLayer = window.dataLayer || [];
       function gtag() {
         dataLayer.push(arguments);
       }
-      gtag('js', new Date());
+      gtag("js", new Date());
 
-      // Configure with the selected measurement ID
-      gtag('config', window.SELECTED_MEASUREMENT_ID, {
-        page_title: 'LuaData - AI ML Data Science',
+      // Google Analytics Configuration
+      gtag("config", "G-60DJ61ZW6C", {
+        page_title: "LuaData - AI ML Data Science",
         page_location: window.location.href,
       });
 
-      // Google Ads Conversion Tracking (if needed for both domains)
-      gtag('config', 'AW-17153791006');
-      
-      console.log('GA4 initialized with:', window.SELECTED_MEASUREMENT_ID);
+      // Google Ads Conversion Tracking Configuration
+      gtag("config", "AW-17153791006");
     </script>
   </head>
   <body>
@@ -88,16 +49,18 @@
     
     <!-- Form Handler Script -->
     <script>
+      // Simple Form Handler - gtag + notification
       document.addEventListener('DOMContentLoaded', function() {
           const contactForm = document.querySelector('.contact-form');
           
           if (contactForm) {
               contactForm.addEventListener('submit', function(e) {
-                  e.preventDefault();
+                  e.preventDefault(); // Prevent default form submission
                   
-                  console.log('Form submitted, firing GA4 events...');
+                  // Get form data
+                  const formData = new FormData(contactForm);
                   
-                  // Fire gtag events
+                  // Fire gtag events immediately on form submission
                   gtag('event', 'generate_lead', {
                       'currency': 'USD',
                       'value': 50,
@@ -118,13 +81,15 @@
                       'value': 50
                   });
                   
-                  console.log('GA4 events sent');
-                  
+                  // Show success notification
                   showSuccessNotification();
+                  
+                  // Reset form
                   contactForm.reset();
               });
           }
       });
+
       // Show success notification
       function showSuccessNotification() {
           // Remove any existing notifications
